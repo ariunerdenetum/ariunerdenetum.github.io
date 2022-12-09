@@ -1,37 +1,54 @@
 <div id="particles-js">
   <div class="header">
-      <h1>
-        <span class="site-title">{{ site.username }}</span>
-        <span class="site-description">{{ site.user_title }}</span>
-      </h1>
-      <div class="header-icons">
-        {% if site.email %}
-        <a aria-label="Send email" href="mailto:{{ site.email }}"><i class="icon fa fa-envelope"></i></a>
-        {% endif %}
-        {% if site.twitter_username %}
-        <a aria-label="My Twitter" target="_blank" href="https://twitter.com/{{ site.twitter_username }}"><i class="icon fa fa-twitter" aria-hidden="true"></i></a>
-        {% endif %}
-        {% if site.instagram_username %}
-        <a aria-label="My Instagram" target="_blank" href="https://www.instagram.com/{{ site.instagram_username }}"><i class="icon fa fa-instagram" aria-hidden="true"></i></a>
-        {% endif %}
-        {% if site.facebook_username %}
-        <a aria-label="My Facebook" target="_blank" href="https://www.facebook.com/{{ site.facebook_username }}"><i class="icon fa fa-facebook" aria-hidden="true"></i></a>
-        {% endif %}
-        {% if site.linkedin_username %}
-        <a aria-label="My LinkedIn" target="_blank" href="https://www.linkedin.com/in/{{ site.linkedin_username }}"><i class="icon fa fa-linkedin-square" aria-hidden="true"></i></a>
-        {% endif %}
-        {% if site.github_username %}
-        <a aria-label="My Github" target="_blank" href="https://github.com/{{ site.github_username }}"><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
-        {% endif %}
-        {% if site.medium_username %}
-        <a aria-label="My Medium" target="_blank" href="https://medium.com/{{ site.medium_username }}"><i class="icon fa fa-medium" aria-hidden="true"></i></a>
-        {% elsif site.medium_url %}
-        <a aria-label="My Medium" target="_blank" href="https://{{ site.medium_url }}"><i class="icon fa fa-medium" aria-hidden="true"></i></a>
-        {% endif %}
+    <div class="header-ariuka">
+      <!-- Fine Circle Responsive Image -->
+      <div class="header-ariuka-left">
+        <div id="container" class="my-2">
+          <div id="dummy"></div>
+          <div id="element">
+            <img src="./image1.jpg" alt="Ariun-Erdene Tumurchuluun" class="circle-image wow animated zoomIn" data-wow-delay=".1s">
+          </div>
+        </div>
       </div>
-      <div class="header-links">
-        <!-- <a class="link" href="#about" data-scroll>About Me</a> -->
+      <div>
+        <h1 class="p-0 site-description text-left">{{ site.username }}</h1>
+        <!-- <p>{{ site.user_description }}</p> -->
+        <p class="text-left">Hi there. It's a pleasure to meet you. I am a Software Engineering student cum laude from the National University of Mongolia. Since childhood, I have always been interested in technology. I work at a fintech company as a software engineer on different projects implementing the R&A approach. </p>
+        <p class="text-left mobile-none">As a technology enthusiast, I enjoy experimenting with different technologies and frameworks to see changes and capabilities. Recently, I have been working on a project, some parts of which need to operate in parallel. Although using an open-source framework is the easiest way to solve this, I decided to discover this in depth through the lessons available on the internet.</p>
+        <p class="text-left mobile-none">Apart from that, I am keen on swimming, yoga, acrylic painting, and playing piano. If you want to know more about me, click the arrow below!</p>
+        <div class="header-icons">
+          {% if site.email %}
+          <a aria-label="Send email" href="mailto:{{ site.email }}"><i class="icon fa fa-envelope"></i></a>
+          {% endif %}
+          {% if site.twitter_username %}
+          <a aria-label="My Twitter" target="_blank" href="https://twitter.com/{{ site.twitter_username }}"><i class="icon fa fa-twitter" aria-hidden="true"></i></a>
+          {% endif %}
+          {% if site.instagram_username %}
+          <a aria-label="My Instagram" target="_blank" href="https://www.instagram.com/{{ site.instagram_username }}"><i class="icon fa fa-instagram" aria-hidden="true"></i></a>
+          {% endif %}
+          {% if site.facebook_username %}
+          <a aria-label="My Facebook" target="_blank" href="https://www.facebook.com/{{ site.facebook_username }}"><i class="icon fa fa-facebook" aria-hidden="true"></i></a>
+          {% endif %}
+          {% if site.linkedin_username %}
+          <a aria-label="My LinkedIn" target="_blank" href="https://www.linkedin.com/in/{{ site.linkedin_username }}"><i class="icon fa fa-linkedin-square" aria-hidden="true"></i></a>
+          {% endif %}
+          {% if site.github_username %}
+          <a aria-label="My Github" target="_blank" href="https://github.com/{{ site.github_username }}"><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
+          {% endif %}
+          {% if site.medium_username %}
+          <a aria-label="My Medium" target="_blank" href="https://medium.com/{{ site.medium_username }}"><i class="icon fa fa-medium" aria-hidden="true"></i></a>
+          {% elsif site.medium_url %}
+          <a aria-label="My Medium" target="_blank" href="https://{{ site.medium_url }}"><i class="icon fa fa-medium" aria-hidden="true"></i></a>
+          {% endif %}
+          {% if site.cv_url %}
+          <a aria-label="My CV" target="_blank" href="https://{{ site.cv_url }}"><i class="icon header-icon" aria-hidden="true"><span class="header-icon">CV</span></i></a>
+          {% endif %}
+        </div>
+        <div class="header-links">
+          <!-- <a class="link" href="#about" data-scroll>About Me</a> -->
+        </div>
       </div>
+    </div>
   </div>
   <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>
 </div>
