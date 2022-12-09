@@ -17,6 +17,6 @@ github_username:  tariunerdene
 # medium_username: 
 # medium_url: 
 # gplus_username:  
-# cv_url: 
+cv_url: https://ariunerdenetum.github.io/assets/files/cv_ariunerdene.pdf
 
 exclude: ['package.json', 'src' , 'node_modules']
