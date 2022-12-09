@@ -44,3 +44,45 @@
     font-weight: 400;
   }
 }
+
+#container { display: inline-block; position: relative; width: 100%; }
+
+#dummy { padding-top: 100%; /* 1:1 aspect ratio */ }
+
+#element { position: absolute; top: 0; bottom: 0; left: 0; right: 0; }
+
+.circle-image { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center; }
+
+.site-subtitle { font-size: 1.2rem; color: white; top: -3rem; }
+
+.text-left { text-align: left; }
+
+.card-text { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+.card-badge { font-weight: 500; border-radius: 1rem; border: 1px solid royalblue; color: royalblue; padding: 0 0.5rem; font-size: 75%; }
+
+.p-0 { padding: 0; }
+
+.m-0 { margin: 0; }
+
+a { text-decoration: none; color: #000; }
+
+.text-italic { font-style: italic; }
+
+.header-icon { font-style: normal; font-size: 1.5rem; }
+
+.header-ariuka { display: flex; justify-content: space-between; gap: 1rem; }
+
+.header-ariuka-left { max-width: 230px; min-width: 200px; }
+
+.header-ariuka h1 { font-size: 1.8rem !important; }
+
+@media (max-width: 1240px) {
+    .header { width: 80vw; }
+}
+@media (max-width: 756px) {
+    .header-ariuka { flex-direction: column; align-items: center; justify-content: center; }
+    .header-ariuka .text-left { text-align: center; }
+    .header-icon { font-size: 1.2rem; }
+    .mobile-none { display: none; }
+}
