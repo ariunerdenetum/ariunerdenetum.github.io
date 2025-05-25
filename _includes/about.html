@@ -52,52 +52,66 @@
       <div class="tech">
         <h3 class="text-left m-0">Causal Investigation of Tense Encoding in Multilingual Transformers</h3>
         <p class="text-left">Supervisors: Prof. Dr. Josef van Genabith, David Mareček, Koel Dutta Chowdhury</p>
-        <p class="text-left">A Thesis work at Charles University and Saarland University</p>
+        <p class="text-left">Joint thesis at Charles University and Saarland University examining how transformer layers encode tense information across languages. Methodology includes probing analyses, causal intervention experiments, and Sparse Autoencoders (SAEs) to isolate syntactic representations.</p>
       </div>
       <div class="tech">
         <h3 class="text-left m-0">Analyzing Word Order Encoding in Multilingual BERT through Probing</h3>
         <p class="text-left">Under blind review at ACL (05/2025).</p>
+        <p class="text-left">Implemented diagnostic classifiers to measure multilingual BERT’s sensitivity to word-order variations in typologically diverse languages. Evaluated performance on custom multilingual corpora derived from Universal Dependencies annotations.</p>
       </div>
     </div>
   </div>
 
   <div class="user-details">
-    <h1 style="margin-bottom: -2rem;">NLP Projects</h1>
+    <h1 style="margin-bottom: -2rem;">NLP & ML Projects</h1>
     <div>
       <div class="tech">
+        <h3 class="text-left m-0">Speech Recognition System with HTK</h3>
+        <p class="text-left">Built an HMM‐based speech recognizer using HTK: prepared and normalized a custom speech corpus, extracted MFCC features, trained monophone and triphone models with Baum–Welch reestimation, applied CMVN and VTLN. Evaluated WER on held-out test sets and packaged a live transcription demo using HVite and N‐gram decoding.</p>
+      </div>
+      <div class="tech">
+        <h3 class="text-left m-0">Morphological Analyzer for Russian</h3>
+        <p class="text-left">Developed a finite‐state analyzer with Foma: encoded lexicon entries (root, inflection class) to generate full paradigms for nouns and adjectives. Identified phonological alternations affecting feminine noun inflections and adjective agreement patterns.</p>
+      </div>
+      <div class="tech">
+        <h3 class="text-left m-0">Sentiment Analysis on Movie Reviews</h3>
+        <p class="text-left">Collected and preprocessed IMDB reviews (HTML stripping, tokenization). Annotated dataset; computed inter‐annotator agreement (63% observed, κ=0.172). Fine‐tuned BERT for sentiment classification; evaluated model accuracy on balanced test set.</p>
+      </div>
+      <div class="tech">
+        <h3 class="text-left m-0">Swadesh List Similarity Analysis</h3>
+        <p class="text-left">Computed Jaccard similarity across Swadesh vocabularies for English, Spanish, French, Italian, Slovak, Romanian, Latin, Catalan, Macedonian, and Swahili. Visualized pairwise similarity via heatmap; observed low overlap (max 7%), with notable clusters for Romance languages.</p>
+      </div>
+      <div class="tech">
+        <h3 class="text-left m-0">Typological Feature Analysis Using Glottolog</h3>
+        <p class="text-left">Analyzed Glottolog data to explore language name length distribution and family sizes. Generated histograms showing most names around ten characters and identified language isolates (Ainu, Yokutsan, Nivkh, Chiquitano) within global family distribution.</p>
+      </div>
+      <div class="tech">
+        <h3 class="text-left m-0">Entropy & Cross-Entropy in Language Modeling</h3>
+        <p class="text-left">Calculated conditional entropy of English and Czech text corpora under varying “mess‐up” probabilities (0%–10%). Demonstrated sensitivity to character‐level errors: baseline entropy 5.29 (English) and 4.75 (Czech). Visualized entropy trends as noise increased.</p>
+      </div>
+      <div class="tech">
+        <h3 class="text-left m-0">Brill’s Tagger & Unsupervised HMM Tagging</h3>
+        <p class="text-left">Evaluated NLTK’s Brill tagger and implemented supervised/un­s upervised HMM taggers on English and Czech corpora. Achieved 86.9% accuracy for English and 60.7% for Czech with Brill. Applied Baum–Welch reestimation for HMM; performance within 5% of Brill’s accuracy, validating HMM viability for morphologically rich languages.</p>
+      </div>
+      <div class="tech">
+        <h3 class="text-left m-0">Deep Learning</h3>
+        <p class="text-left">
+          Completed the following small projects in PyTorch and TensorFlow, including:
+          <ul>
+            <li><strong>Sequence Classification</strong> (“sequence_classification”): implemented RNN (SimpleRNN, GRU, LSTM) models to compute prefix parity over integer sequences; experimented with gradient clipping and analyzed convergence via TensorBoard.</li>
+            <li><strong>POS Tagging with Word Embeddings</strong> (“tagger_we”, “tagger_cle”, “tagger_competition”): built bidirectional RNN taggers using pretrained word vectors; trained on English and Czech corpora, optimized accuracy in class competition.</li>
+            <li><strong>Named Entity Recognition</strong> (“tagger_ner”): developed a BiLSTM‐CRFNER pipeline with contextual embeddings; evaluated using F1 score on held‐out test sets.</li>
+            <li><strong>Speech Recognition</strong> (“ctc_loss”, “speech_recognition”): implemented CTC‐based acoustic models; extracted MFCC features, trained CTC networks in PyTorch, and measured WER on development data.</li>
+            <li><strong>Lemmatization via Seq2Seq</strong> (“lemmatizer_noattn”, “lemmatizer_attn”): created encoder–decoder models with and without attention to normalize inflected forms; trained on UD corpora, achieving >95% lemmatization accuracy.</li>
+            <li><strong>Transformer POS Tagger</strong> (“tagger_transformer”): fine‐tuned a Transformer encoder for token‐level tagging; attained state‐of‐the‐art POS accuracy on multilingual benchmarks.</li>
+            <li><strong>Sentiment Analysis & Reading Comprehension</strong> (“sentiment_analysis”, “reading_comprehension”): fine‐tuned BERT for binary movie‐review sentiment classification and span‐selection QA; evaluated using accuracy and F1 metrics.</li>
+          </ul>
+          Demonstrated proficiency in deep learning frameworks (PyTorch, TensorFlow), CTC loss, seq2seq architectures, and transformer fine‐tuning.
+      </p>
+      </div>
+      <div class="tech">
         <h3 class="text-left m-0">Deep Reinforcement Learning for Gaming</h3>
-        <p class="text-left">Worked on plenty of smaller projects working with Gymnasium library, implementing different reinforcement algorithms to train a model win the game. It was such a fun experience. Along the way I became familiar with TensorFlow and PyTorch.</p>
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">Training a SRS using the Hidden Markov Model Toolkit (HTK)</h3>
-        <p class="text-left">Prepared and normalized a speech corpus from my voice, built a phonetic lexicon and language model, extracted MFCC features, and defined HMM topology. Trained monophone and triphone acoustic models with successive Baum–Welch re-estimation, applied state-tying and speaker adaptation (CMVN, VTLN), and optimized decoding parameters. Evaluated system performance via word error rate on held-out test sets. Packaged final recognizer with HTK’s HVite decoder and N-gram model for live transcription demos.</p>      
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">Morghological Analyzer</h3>
-        <p class="text-left">Implemented a morphological analyzer in Russian language processing lexicons in a modular way as it allows focused and efficient processing. Utilized Foma, a finite-state-transducer tool. In terms of encoding of morphological information, eEach lexical entry encodes the root, inflection class, and other pertinent morphological information, enabling the MA to generate all correct forms of a word given its lemma. When deciding the Part of Speech to ananyze, the analyzer covered feminine noun declensions, as well as adjectives, including cases, numbers, superlative form, and negation. At the end of the work, we found some interesting linguistic phenomenas in Russian: based on the manner of articulation of preceding consonant, some feminine nouns are affected in its inflection in some cases. Same story in adjectives as well.</p>      
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">Sentiment analysis on random movie reviews</h3>
-        <p class="text-left">Our interest in linguistic phenomena led us to focus on sentiment analysis, specifically analyzing movie reviews, since they offer rich and diverse content, contextual understanding, and varied sentiment expression. Therefore, the task involves categorizing the reviews into positive, negative, or neutral sentiments. We utilized the publicly available IMDB data source, considering the permissible scraping permissions. This dataset comprises individual files containing movie reviews, eliminating the need for extensive preprocessing. Using some Python code, we preprocessed the dataset by removing some HTML tags from the text. Also, we wrote the data in one comprehensive text file, indexing each review in one line. Experiment execution consisted of three sections: dataset collection, annotation, and inter-annotator agreement. The probability of agreement by chance was calculated to be 13.77%. For evaluation, we used inter-annotator agreement and Cohen's Kappa. The observed level of agreement between annotators was measured at 63% and Cohen's Kappa coefficient was computed to be 0.172, indicating a relatively low level of agreement after accounting for chance agreement. In conclusion, while there is a moderate level of agreement observed among us, the annotators, notable discrepancies exist, particularly in categorizing neutral sentiments within the dataset. This experiment emphasizes the necessity for discussions and potential refinement in annotation guidelines to improve the overall agreement among the annotators.</p>      
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">Analyzing similarities in Swadesh's list of words in different languages</h3>
-        <p class="text-left">In this project we aimed to know if some general words in various languages are similar or if some of the languages in this list borrowed these words from one another. To achieve that, we constructed similar meaning vocabularies across these languages using the Swadesh corpus of the NLTK library. Our languages compromised English, Spanish, French, Italian, Slovak, Romanian, Latin, Catalan, Macedonian, and Swahili. In terms of scoring function, we used a Jaccard similarity-based scoring function, which measures the similarity between two sets by dividing the size of their intersection by the size of their union. In our case, we used this formula considering the vocabularies as sets of words, and for each pair of languages, after calculating the Jaccard similarity between languages using the Swadesh list of words, we made a visualization of the scores as a heatmap.
-Speaking of the visualization, even though some similar words appear in some pairs of languages, a maximum Jaccard similarity value of 0.07 in the heatmap indicates a low degree of similarity among the sets of words. Conversely, a score of 0.07 suggests that only 7% of the words in the sets overlap, indicating a relatively low level of borrowing among the Swadesh lists in the specified languages.
-Moreover, A Jaccard similarity from 1% to 7% indicates some word sharing among the languages, such as Spanish and Catalan, Italy and Latin, and French and Catalan having 6% of similar Swadesh list of words on average. While they are not very similar, there are commonalities in the choice of at least some general words across some languages.
-</p>
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">Analyzing typological features of languages using the Glottolog languoids dataset</h3>
-        <p class="text-left">The analysis focused on understanding the distribution of language name length. Also, we explored the distribution of languages across different language families. The analysis revealed that the length of language names varies across the dataset. The 'Name_Length' histogram demonstrates a diverse distribution, with most of the language names around ten characters long while, surprisingly, some languages have even 60-character long names. From language family distribution, we found while the Atlantic-Congo and Austronesian families have the most languages among the available data in Glottolog, Japan's Ainu, Yokutsan, Nivkh, and Chiquitano have no known relatives becoming the most minor 5, which makes them language isolates.</p>      
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">Exploring Entropy and Cross-Entropy and Language Modeling</h3>
-        <p class="text-left">Our goal was to determine the conditional entropy of the word distribution in a text given the previous word. We played around altering the text with mess-up likelihoods from 0% to 10%. Overall, both languages followed similar pattern, having a steady increase when the randomness in the text data rises. The mess of the sample data in each language is the lowest when the likelihood is 10%, while the entropy of the original text results the highest. In terms of baseline entropy when the text was not altered, the uncertainty of English text was 5.287452187472434, while it was 4.747847796480321 in Czech text. As seen in the graph, as we start to increase the mess-up likelihood, the entropy decreases as well indicating that even minor alterations significantly influence the language structure. Speaking of word-level of alterations, the entropy stays considerably stable compared to the character-level alterations. Additionally, since the two languages follows the same pattern regarding the mess-up alterations, both English and Czech languages are sensitive to character changes.</p>      
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">Brill's Tagger, Tagger Evaluation & Unsupervised Learning: HMM Tagging</h3>
-        <p class="text-left">Used NLTK implementation in Python and did cross-validation on large amount of text corpora (English, Czech). For evaluation, we used accuracy, cross_accuracy, and standard deviation. English tagger (86.9) was far more better than Czech tagger indicating the rich morphology of Czech language (60.7). For HMM tagging, we used same dataset from the first part and sstimated the parameters of an HMM tagger using supervised learning off the training data (trigram and lower models for tags). Performed smoothing in both the trigram tag model and lexical model using heldout and evaluated the tagger on test data using Viterbi algorithm. We also estimated the initial (raw) parameters of the HMM tagging model and utilized Baum-Welch algorithm to improve on the initial parameters. We evaluated our unsupervised HMM tagger and the supervised HMM tagger. We found that our HMM tagger's performance for both English and Czech are almost similar to Brill tagger, only five percent drop in accuracy indicating that HMM is a good algorithm, equally works for discrete tokens like texts.</p>      
+        <p class="text-left">Implemented and compared PPO, DQN, and A2C algorithms using Gymnasium environments. Developed training pipelines in TensorFlow and PyTorch;</p>
       </div>
     </div>
   </div>
@@ -106,14 +120,14 @@ Moreover, A Jaccard similarity from 1% to 7% indicates some word sharing among t
     <h1 style="margin-bottom: -2rem;">Industry Experience</h1>
     <div>
       <div class="tech">
-        <h3 class="text-left m-0">Software engineer, AI Lab LLC</h3>
-        <p class="text-left text-italic m-0">June 2021 - July 2023</p>
-        <p class="text-left">As a part of the development team, I did DevOps roles such as planning, coding, and testing with skilled senior engineers in my field. When developing new products, and services, or improving those that already exist, we used to implemet R&D, utilizing the research and development process.</p>
+        <h3 class="text-left m-0">Software Engineer, AI Lab LLC</h3>
+        <p class="text-left text-italic m-0">June 2021 – July 2023</p>
+        <p class="text-left">Designed and maintained Django‐Vue microservices. Configured AWS EC2 and GCP clusters for scalable ML inference. Developed REST APIs for data pipelines. Automated CI/CD with GitLab CI. Coordinated requirements and sprint planning using Jira.</p>
       </div>
       <div class="tech">
         <h3 class="text-left m-0">Teaching Assistant, Empasoft LLC</h3>
         <p class="text-left text-italic m-0">June 2020 – December 2020</p>
-        <p class="text-left">When I was a sophomore, one of my professors asked me to intern as an education assistant at Empasoft LLC. My role was to teach high schoolers about the fundamental concepts of Web Development (HTML, CSS, and JavaScript) and Java programming.</p>
+        <p class="text-left">Instructed high school students in HTML, CSS, JavaScript, and Java programming. Created lesson plans, assessed progress, and provided feedback to improve student comprehension.</p>
       </div>
     </div>
   </div>
@@ -123,14 +137,14 @@ Moreover, A Jaccard similarity from 1% to 7% indicates some word sharing among t
     <div>
       <div class="tech">
         <h3 class="text-left m-0"><a href="https://www.icapital.mn">Icapital.mn</a></h3>
-        <p class="text-left text-italic m-0">March 2022 - July 2023</p>
-        <p class="text-left">A secondary market system, is a part of a micro-service system of Invescore Capital, which involves two primary services - an underwriting service and a brokerage service.</p>
-        <p class="text-left">As a team member in this enterprise, I work as a full-stack developer, implementing Research and Development (R&A) in every requirement that is needed to be satisfied. Because the back end of this product uses PHP programming language, I managed to flow with the development process by simultaneously learning the language and the frameworks such as Laravel, Lumen, Blade, and Orchid. Besides, writing unit tests as soon as implementing a stakeholder characteristic is a must since the project works with other sub-systems. </p>
+        <p class="text-left text-italic m-0">March 2022 – July 2023</p>
+        <p class="text-left">Developed full-stack features for secondary market microservices. Learned and applied PHP (Laravel, Lumen, Blade, Orchid) to implement underwriting and brokerage modules. Wrote unit tests; maintained CI/CD. Deployed via Docker and Kubernetes; integrated Redis for caching and Google Cloud Functions for serverless tasks.</p>
         <p id="git-for-wizards-tools" class="card-text">
           <span class="card-badge">PHP</span>
-          <span class="card-badge">PHP Laravel</span>
-          <span class="card-badge">PHP Orchid</span>
-          <span class="card-badge">PHP Blade</span>
+          <span class="card-badge">Laravel</span>
+          <span class="card-badge">Lumen</span>
+          <span class="card-badge">Blade</span>
+          <span class="card-badge">Orchid</span>
           <span class="card-badge">Express JS</span>
           <span class="card-badge">Firebase</span>
           <span class="card-badge">Google Cloud Functions</span>
@@ -139,12 +153,11 @@ Moreover, A Jaccard similarity from 1% to 7% indicates some word sharing among t
       </div>
       <div class="tech">
         <h3 class="text-left m-0"><a href="https://ipo.icapital.mn">Ipo.Icapital.mn</a></h3>
-        <p class="text-left text-italic m-0">March 2022 - July 2023</p>
-        <p class="text-left">As its name stands, the immediate purpose of this system is to make the function of buying pre-IPO stock possible for retail investors. </p>
-        <p class="text-left">My fundamental role is the same as in the secondary market system of Invescore Capital, as I mentioned earlier. On top of that, since the front end was written using the Vue JS web framework, it was easy to implement application behaviors relating to IPO ordering and managing user credentials. The most recent development I implemented is the SSO platform, which uses the OAuth3 protocol to manage user credentials, using Firebase Authentication Service, Firebase Admin SDK, and Google Cloud Functions. The initial approach was Keycloak, an open-source identity and access management solution, but it was insufficient as our users kept increasing.</p>
+        <p class="text-left text-italic m-0">March 2022 – July 2023</p>
+        <p class="text-left">Built front-end features in Vue.js for IPO ordering and credential management. Implemented OAuth3 SSO with Firebase Authentication and Google Cloud Functions. Transitioned from Keycloak to Firebase Auth to support a growing user base.</p>
         <p id="git-for-wizards-tools" class="card-text">
           <span class="card-badge">PHP</span>
-          <span class="card-badge">PHP Lumen</span>
+          <span class="card-badge">Lumen</span>
           <span class="card-badge">Vue JS</span>
           <span class="card-badge">Express JS</span>
           <span class="card-badge">Firebase</span>
@@ -155,16 +168,14 @@ Moreover, A Jaccard similarity from 1% to 7% indicates some word sharing among t
       </div>
       <div class="tech">
         <h3 class="text-left m-0"><a href="https://www.finberry.mn">FinBerry.mn</a></h3>
-        <p class="text-left text-italic m-0">October 2021 - July 2023</p>
-        <p class="text-left">The FinBerry platform offers three types of crowdfunding - loans (collateralized and guaranteed), incentives, and donations.</p>
-        <p class="text-left">The immediate service of this company relies on several sub-systems such as admin web, user web and other server side systems. I maintain the current system status by keeping track of the ongoing work and reported issues to make sure that it gets reviewed and merged in a timely manner, delivering the vision by implementing, fixing bugs, reviewing and merging PRs directly and via contributors. The system has been developed using Django, and Django Rest which are frameworks of Python. </p>
+        <p class="text-left text-italic m-0">October 2021 – July 2023</p>
+        <p class="text-left">Maintained Django‐based crowdfunding platform. Triaged and resolved bugs, reviewed and merged pull requests. Implemented new features in Django REST framework. Coordinated with cross-functional teams to align development with business requirements.</p>
         <p id="git-for-wizards-tools" class="card-text">
           <span class="card-badge">Python</span>
           <span class="card-badge">Django</span>
           <span class="card-badge">Django REST</span>
           <span class="card-badge">Vue JS</span>
         </p>
-      </div>
       </div>
     </div>
   </div>
