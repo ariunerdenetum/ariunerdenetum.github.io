@@ -37,7 +37,7 @@ p {
 ul {
     list-style-type: none;
     text-align: justify;
-    padding: 0;
+    padding: 0 !important;
 }
 
 @media (max-width: 1240px) {
