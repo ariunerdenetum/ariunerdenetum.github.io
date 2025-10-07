@@ -30,6 +30,16 @@ a { text-decoration: none; color: #000; }
 
 .header-ariuka h1 { font-size: 1.8rem !important; }
 
+p {
+    text-align: justify;
+}
+
+ul {
+    list-style-type: none;
+    text-align: justify;
+    padding: 0;
+}
+
 @media (max-width: 1240px) {
     .header { width: 80vw; }
 }
