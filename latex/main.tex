@@ -1,0 +1,96 @@
+\documentclass[11pt,a4paper,roman]{moderncv}
+
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+\usepackage[scale=0.75]{geometry}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\usepackage{fontawesome}
+\linespread{1.08}
+\setlength{\parskip}{0.35em}
+\setlength{\hintscolumnwidth}{3.3cm}
+
+\newcommand{\cvsection}[1]{%
+  \vspace{0.4em}%
+  {\large\MakeUppercase{#1}}\\[-0.35em]%
+  \rule{\textwidth}{0.4pt}\vspace{0.25em}%
+}
+
+\firstname{Ariun-Erdene}
+\familyname{Tumurchuluun}
+\title{Curriculum Vitae}
+
+\begin{document}
+
+\begin{center}
+% {\Huge{Ariun-Erdene Tumurchuluun, Curriculum Vitae}}
+{\Huge{TEXT}}
+\end{center}
+
+Software engineer and NLP researcher with full-stack industry experience and graduate training in computational linguistics, multilingual language modeling, and explainable AI. Focused on building reliable language technologies through rigorous experimentation and production-grade implementation.
+
+\cvsection{Contact}
+\cvitem{Email}{ariunerdene.tn@gmail.com}
+\cvitem{Phone}{(+976) 9107-2269}
+\cvitem{Location}{Ulaanbaatar, Mongolia}
+\cvitem{Profiles}{\faGithub\ \href{https://github.com/}{GitHub} \quad \faGlobe\ \href{https://}{Portfolio}}
+
+\cvsection{Education}
+
+\cventry{10/2023 - 09/2025}{Master of Science, Language Science Technology}{Universitat des Saarlandes}{Saarbrucken, Germany}{}{%
+GPA: 2.0/5.0 (excellent in German scale). Relevant coursework: Multimodal Language Understanding, Mechanistic Interpretability, Speech Science, Software Project, Computational Linguistics. EU Joint Master's Scholarship (Fully funded).}
+
+\cventry{10/2023 - 09/2025}{Master of Science, Language Technologies and Computational Linguistics}{Charles University}{Prague, Czech Republic}{}{%
+GPA: 1.91/4.0 (excellent in Czech scale), Summa Cum Laude. Relevant coursework: Deep Learning, Unsupervised Machine Learning, Speech Recognition \& Generation, Statistical Methods in NLP.}
+
+\cventry{09/2018 - 05/2022}{Bachelor's Degree, Software Engineering}{National University of Mongolia}{Ulaanbaatar, Mongolia}{}{%
+GPA: 3.8/4.0 (top 1\%), Summa Cum Laude, Most Advanced Graduate Award.}
+
+\cvsection{Publication}
+
+\cventry{10/2025}{TenseLoC: Tense Localization and Control in a Multilingual LLM}{}{}{}{%
+Ariun-Erdene Tumurchuluun, Yusser Al Ghussin, David Marecek, Josef van Genabith, Koel Dutta Chowdhury. Accepted at MRL Workshop in EMNLP 2025; Best Paper Award. Explainable AI study on generative AI for tense understanding across languages. Demonstrates tense subspace localization and controllable tense steering without fine-tuning for downstream domains including medical NLP, machine translation, and legal applications.}
+
+\cvsection{Research \& Experience}
+
+\cventry{04/2025} {Analyzing Word Order Encoding in Multilingual LLM (text processing)}{}{}{}{%
+Implemented diagnostic classifiers to measure encoder-only mBERT sensitivity to word-order variations in six typologically diverse languages using PyTorch.}
+
+\cventry{03/2025} {Analyzing Myers-Briggs 16 Personality Types from Handwriting (vision)}{}{}{}{%
+Collected handwriting and personality test data from around 50 participants, preprocessed characters from images, and trained a supervised model reaching around 61\% test accuracy.}
+
+\cventry{02/2025} {Speech Recognition System with HTK (audio processing)}{}{}{}{%
+Built an HMM-based recognizer with HTK. Prepared and normalized a custom speech corpus, extracted MFCC features, and trained monophone and triphone models with Baum-Welch re-estimation.}
+
+\cventry{01/2025} {n-step TD and Trace-based Off-policy Control (Deep RL course project)}{}{}{}{%
+Implemented a modular PyTorch codebase combining n-step temporal-difference control (SARSA, Expected SARSA, Tree Backup) with trace-based estimation (eligibility traces, importance-sampling corrections, control variates, clipping), supporting on-policy and off-policy settings for value and action-value regimes.}
+
+\cventry{11/2025 - Current}{AI Engineer}{Egune AI LLC}{Ulaanbaatar, Mongolia}{}{%
+}
+
+\cventry{06/2021 - 07/2023}{Software Engineer}{AI Lab LLC}{Ulaanbaatar, Mongolia}{}{%
+Tech division of a major financial firm in Mongolia. Built, tested, deployed, and documented three web applications (finberry.mn, burenscore, icapital.mn). Developed full-stack features for secondary market microservices, optimized search systems, implemented OAuth-based SSO with Firebase Authentication and Google Cloud Functions, and migrated from Keycloak to Firebase Auth for scalability. Maintained a Django-based crowdfunding platform. Stack: Python, PostgreSQL, AWS, Firebase, Redis, HTML, CSS, JavaScript, unit and integration testing.}
+
+\cvsection{Funding}
+
+\cventry{10/2023 - 09/2025}{LCT}{}{}{}{%
+}
+
+\cvsection{Awards}
+
+\cventry{10/2025}{Best Paper Award}{Multilingual Representation Learning workshop @EMNLP}{}{}{%
+}
+
+
+% \cventry{06/2020 - 12/2020}{Teaching Assistant}{Empasoft LLC}{Ulaanbaatar, Mongolia}{}{%
+% Taught high-school students web programming from fundamentals to advanced level (HTML, CSS, JavaScript, Java). Created lesson plans, assessed student progress, and provided actionable feedback.}
+
+% \cvsection{Skills \& Interests}
+
+% \cvitem{Technologies}{Natural Language Processing, Machine Learning, Large Language Models, Multimodal Language Models, Vision-Language Models, Explainable AI, Mechanistic Interpretability, Gymnasium, data labeling and annotation, data analysis, Python (4+ years), PyTorch, TensorFlow, Keras, Scikit-learn, sae-lens, Pyvene, pandas, numpy, NLTK, Hugging Face Transformers, Seaborn, Matplotlib, PostgreSQL, Redis, Firebase, Django, Vue.js.}
+
+% \cvitem{Skills}{Professional English, beginner Japanese, clean code practices, CUDA kernel programming, unit and integration testing, CI/CD (GitHub/GitLab), Linux/Unix, documentation, presenting, cross-functional collaboration, Adobe XD, Figma, Canva.}
+
+% \cvitem{Interests}{Traveling, painting, songwriting, gaming, yoga, science communication channels, fantasy books.}
+
+\end{document}
