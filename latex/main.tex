@@ -11,7 +11,7 @@
 \setlength{\hintscolumnwidth}{3.3cm}
 
 \newcommand{\cvsection}[1]{%
-  \vspace{0.4em}%
+  \vspace{0.8em}%
   {\large\MakeUppercase{#1}}\\[-0.35em]%
   \rule{\textwidth}{0.4pt}\vspace{0.25em}%
 }
@@ -23,89 +23,102 @@
 \begin{document}
 
 \begin{center}
-% {\Huge{Ariun-Erdene Tumurchuluun, Curriculum Vitae}}
-{\Huge{TEXT}}
+{\Huge{Ariun-Erdene Tumurchuluun, CV}}
 \end{center}
 
-Software engineer and NLP researcher with full-stack industry experience and graduate training in computational linguistics, multilingual language modeling, and explainable AI. Focused on building reliable language technologies through rigorous experimentation and production-grade implementation.
+I am an MSc graduate and AI engineer with a research focus on alignment and fairness challenges in state-of-the-art LLMs. Specifically, my main interest is understanding how state-of-the-art multilingual models internally represent alignment and fairness-related concepts and whether these representations are universal, language-specific, or both, and how mechanistic interpretability tools can help us understand and mitigate the underlying issues.
+My path into this area began in software engineering, where I was fortunate enough to meet my undergraduate supervisor, Khuyagbaatar, who encouraged me to pursue NLP more deeply and supported my application to the prestigious Language and Communication Technologies program, which is a double master's degree that became the foundation of my research journey. In my second year, a software project course taught by DFKI researchers introduced me to mechanistic interpretability, where I explored key tools and read Anthropic's work on scaling monosemanticity, which led me to propose a thesis grounded in this framework. My thesis supervisors welcomed the idea, and together with my daily supervisor Koel, we carried out a project which we eventually submitted to the MRL workshop at EMNLP 2025 in Suzhou, China, where it received the Best Paper Award.
+Since then, we have stayed in touch, and we are currently investigating stereotype bias, spanning gender, age, sexual orientation, physical appearance, and more, across multiple model families and languages, asking to what extent these biases are represented universally versus language-dependently, and whether the patterns hold consistently across different architectures. This work is currently under review at CoLM 2026.
+I am now seeking a PhD position where I can extend this line of exploration into projects that are meaningful for both academia and industry, ideally within a research environment with strong expertise in mechanistic interpretability, AI fairness, alignment, and safety.
 
 \cvsection{Contact}
 \cvitem{Email}{ariunerdene.tn@gmail.com}
-\cvitem{Phone}{(+976) 9107-2269}
+\cvitem{Phone}{(+976) 9107 2269}
 \cvitem{Location}{Ulaanbaatar, Mongolia}
-\cvitem{Profiles}{\faGithub\ \href{https://github.com/}{GitHub} \quad \faGlobe\ \href{https://}{Portfolio}}
+\cvitem{Profiles}{\faGithub\ \href{https://github.com/ariunerdenetum}{GitHub} \quad \faGlobe\ \href{https://ariunerdenetum.github.io}{Website}}
+
+\cvsection{Research interests}
+\cvitem{}{%
+AI fairness, alignment, and safety; multilingual LLMs; mechanistic interpretability; representation analysis; sparse autoencoders and monosemantic features; causal tracing; attribution patching; path patching; probing; model steering.%
+}
 
 \cvsection{Education}
 
-\cventry{10/2023 - 09/2025}{MSc. Degree}{ in Language Science Technology, Computer Science}{}{}{%
-Institution: \textbf{Universitat des Saarlandes}, Saarbrucken, Germany
-Thesis Title: Causal Investigation of Tense Encoding in Multilingual Transformer
-GPA: 2.0/5.0 (excellent in German scale). 
-Coursework: Multimodal Language Understanding, Mechanistic Interpretability, Speech Science, Software Project, Computational Linguistics. EU Joint Master's Scholarship (Fully funded).}
-
-\cventry{10/2023 - 09/2025}{MSc. Degree}{ in Language Technologies and Computational Linguistics, Computer Science}{}{}{}{%
-Institution: \textbf{Charles University}, Prague, Czech Republic
-Thesis Title: \href{https://dspace.cuni.cz/bitstream/handle/20.500.11956/203278/120518679.pdf?sequence=1}{Causal Investigation of Tense Encoding in Multilingual Transformer}
-GPA: 1.91/4.0 (excellent in Czech scale), Summa Cum Laude. 
-Coursework: Deep Learning, Unsupervised Machine Learning, Speech Recognition \& Generation, Statistical Methods in NLP.}
-% https://studycharles.cz/catalogue?program=34827
-
-\cventry{09/2018 - 05/2022}{B.Eng. Degree}{ in Software Engineering}{}{}{%
-Institution: \textbf{National University of Mongolia}, Ulaanbaatar, Mongolia
-GPA: 3.8/4.0 (top 1\%), Summa Cum Laude. 
-Coursework: Web Development, Object-Oriented Programming, Data Structures, Algorithms, Database Management System, Software Engineering, Project Management, Agile Development, Cloud Computing, Cybersecurity.}
-
-\cvsection{Publications}
-
-\itemize{
-  \item \textbf{Ariun-Erdene Tumurchuluun}, Yusser Al Ghussin, David Mareček, Josef Van Genabith, and Koel Dutta Chowdhury. 2025. \href{https://aclanthology.org/2025.mrl-main.17/}{TenseLoC: Tense Localization and Control in a Multilingual LLM}. In Proceedings of the 5th Workshop on Multilingual Representation Learning (MRL 2025), pages 243–264, Suzhuo, China. Association for Computational Linguistics
+\cventry{Oct 2023 -- Sep 2025}{M.Sc., Language Science and Technology}{Universit{\"a}t des Saarlandes}{Saarbr{\"u}cken}{Germany}{%
+Thesis: \textit{Causal Investigation of Tense Encoding in a Multilingual Transformer}. \\
+GPA: 2.0/5.0 (German scale; 1.0 = best). \\
+Coursework: Multimodal Language Understanding, Mechanistic Interpretability, Speech Science, Software Project, Computational Linguistics.%
 }
 
-\cvsection{Research \& Experience}
-
-% \cventry{04/2025} {Analyzing Word Order Encoding in a Multilingual LLM}{}{}{}{%
-% Implemented diagnostic classifiers to measure encoder-only mBERT sensitivity to word-order variations in six typologically diverse languages.}
-
-% \cventry{03/2025} {Analyzing Myers-Briggs 16 Personality Types from Handwriting (vision)}{}{}{}{%
-% Collected handwriting and personality test data from around 50 participants, preprocessed characters from images, and trained a supervised model reaching around 61\% test accuracy.}
-
-% \cventry{02/2025} {Speech Recognition System with HTK (audio processing)}{}{}{}{%
-% Built an HMM-based recognizer with HTK. Prepared and normalized a custom speech corpus, extracted MFCC features, and trained monophone and triphone models with Baum-Welch re-estimation.}
-
-% \cventry{01/2025} {n-step TD and Trace-based Off-policy Control (Deep RL course project)}{}{}{}{%
-% Implemented a modular PyTorch codebase combining n-step temporal-difference control (SARSA, Expected SARSA, Tree Backup) with trace-based estimation (eligibility traces, importance-sampling corrections, control variates, clipping), supporting on-policy and off-policy settings for value and action-value regimes.}
-
-\cventry{06/2021 - 07/2023}{Software Engineer}{}{}{}{%
-AI Lab LLC, Ulaanbaatar, Mongolia
-Full-stack software engineer for 
-Tech division of a major financial firm in Mongolia. Built, tested, deployed, and documented three web applications (finberry.mn, burenscore, icapital.mn). Developed full-stack features for secondary market microservices, optimized search systems, implemented OAuth-based SSO with Firebase Authentication and Google Cloud Functions, and migrated from Keycloak to Firebase Auth for scalability. Maintained a Django-based crowdfunding platform. Stack: Python, PostgreSQL, AWS, Firebase, Redis, HTML, CSS, JavaScript, unit and integration testing.}
-
-\cvsection{Funding}
-
-\cventry{2023 - 2025}{}{}{}{}{%
-Funding Body: \textbf{Erasmus Mundus Scholarship}
-Value of Award: 55,000.00 EUR
-Type of Grant: Scholarship
-}
-% 8500(LCT admin fee)+24000(lct expenses)+7100*2(charles)+395*2(saarland semester fee)
-% 47490 + 4000*2(transportation) = 55490
-
-\cvsection{Awards}
-
-\itemize{
-  \item Best Paper Award at 5th Multilingual Representation Learning Workshop @EMNLP, 2025
-  \item Most Advanced Graduate Award at National University of Mongolia, 2022
+\cventry{Oct 2023 -- Sep 2025}{M.Sc., Language Technologies and Computational Linguistics}{Charles University}{Prague}{Czech Republic}{%
+Thesis: \href{https://dspace.cuni.cz/bitstream/handle/20.500.11956/203278/120518679.pdf?sequence=1}{\textit{Causal Investigation of Tense Encoding in a Multilingual Transformer}}. \\
+GPA: 1.91/4.0 (Czech scale; 1.0 = best), Summa Cum Laude. \\
+Coursework: Deep Learning, Unsupervised Machine Learning, Speech Recognition and Generation, Statistical Methods in NLP.%
 }
 
-% \cventry{06/2020 - 12/2020}{Teaching Assistant}{Empasoft LLC}{Ulaanbaatar, Mongolia}{}{%
-% Taught high-school students web programming from fundamentals to advanced level (HTML, CSS, JavaScript, Java). Created lesson plans, assessed student progress, and provided actionable feedback.}
+\cventry{Sep 2018 -- May 2022}{B.Eng., Software Engineering}{National University of Mongolia}{Ulaanbaatar}{Mongolia}{%
+GPA: 3.8/4.0 (top 1\%), Summa Cum Laude. \\
+Coursework: Web Development, Object-Oriented Programming, Data Structures, Algorithms, Databases, Software Engineering, Project Management, Agile Development, Cloud Computing, Cybersecurity.%
+}
 
-% \cvsection{Skills \& Interests}
+\cvsection{Publications and manuscripts}
 
-% \cvitem{Technologies}{Natural Language Processing, Machine Learning, Large Language Models, Multimodal Language Models, Vision-Language Models, Explainable AI, Mechanistic Interpretability, Gymnasium, data labeling and annotation, data analysis, Python (4+ years), PyTorch, TensorFlow, Keras, Scikit-learn, sae-lens, Pyvene, pandas, numpy, NLTK, Hugging Face Transformers, Seaborn, Matplotlib, PostgreSQL, Redis, Firebase, Django, Vue.js.}
+\textit{Peer-reviewed}
+\begin{enumerate}
+  \item \textbf{Ariun-Erdene Tumurchuluun}, Yusser Al Ghussin, David Mare\v{c}ek, Josef Van Genabith, and Koel Dutta Chowdhury. 2025. \href{https://aclanthology.org/2025.mrl-main.17/}{TenseLoC: Tense Localization and Control in a Multilingual LLM}. In \textit{Proceedings of the 5th Workshop on Multilingual Representation Learning}, pages 243--264, Suzhou, China. Association for Computational Linguistics.
+\end{enumerate}
 
-% \cvitem{Skills}{Professional English, beginner Japanese, clean code practices, CUDA kernel programming, unit and integration testing, CI/CD (GitHub/GitLab), Linux/Unix, documentation, presenting, cross-functional collaboration, Adobe XD, Figma, Canva.}
+\textit{Manuscripts under review}
+\begin{enumerate}
+  \item \textbf{Ariun-Erdene Tumurchuluun*}, Yusser Al Ghussin*, Pinzhen Chen, Josef Van Genabith, and Koel Dutta Chowdhury. Under review at CoLM 2026, San Francisco, USA (* equal contribution).
+\end{enumerate}
 
-% \cvitem{Interests}{Traveling, painting, songwriting, gaming, yoga, science communication channels, fantasy books.}
+\cvsection{Selected research projects}
+
+\cventry{Nov 2025 -- present}{There Is No Universal Language for Bias but a Common Fix}{}{}{}{%
+Investigated whether stereotype bias in state-of-the-art LLMs is shared across languages or language-specific across model families. Designed analyses spanning gender, age, sexual orientation, physical appearance, and related attributes; manuscript under review at CoLM 2026.%
+}
+
+\cventry{Jun 2025 -- Oct 2025}{TenseLoC: tense localization and control in a multilingual LLM}{}{}{}{%
+Studied internal representations of grammatical tense (morphology, syntax, semantics) in Llama~3.1 across eight languages using probing, causal tracing, sparse autoencoders, and activation steering grounded in identified tense features. Outcome: peer-reviewed publication at MRL @ EMNLP 2025 (Best Paper Award).%
+}
+
+\cventry{Apr 2025}{Word-order encoding in a multilingual BERT}{}{}{}{%
+Implemented diagnostic classifiers to quantify mBERT sensitivity to word-order perturbations in six typologically diverse languages.%
+}
+
+\cventry{Mar 2022}{Myers--Briggs types from handwriting}{}{}{}{%
+Collected handwriting and self-report personality data ($\sim$50 participants), preprocessed character images, and trained a supervised classifier ($\sim$61\% test accuracy).%
+}
+
+\cvsection{Industry experience}
+
+\cventry{Nov 2025 -- present}{AI Engineer}{Egune AI LLC}{Ulaanbaatar}{Mongolia}{%
+Built NLP systems in Mongolian for spelling and grammar correction, POS tagging, word sense and homonym disambiguation, translation evaluation, RAG-based document retrieval, and text rewriting. Curated and generated training data; fine-tuned models with full fine-tuning, LoRA, and QLoRA (Axolotl); qualitative and quantitative evaluation; inference with Hugging Face Transformers and vLLM; APIs and demo documentations; used Playwright for data collection.%
+}
+
+\cventry{Jun 2021 -- Jul 2023}{Software Engineer}{AI Lab LLC}{Ulaanbaatar}{Mongolia}{%
+Full-stack engineer for a financial clients, where I delivered and maintained three production web applications (investment and funding); implemented microservice features, search improvements, and OAuth SSO (e.g., Firebase Authentication, Google Cloud Functions); migrated identity from Keycloak to Firebase Auth; maintained a Django crowdfunding platform. Stack: Python, PHP, PostgreSQL, AWS, Firebase, Redis, HTML/CSS/JavaScript, automated unit testing.%
+}
+
+\cvsection{Funding and scholarships}
+
+\cventry{2023 -- 2025}{Erasmus Mundus Scholarship}{}{}{}{%
+Joint master's scholarship in Language \& Communication Technologies; total support approximately EUR~55{,}000 (stipend, tuition, transportation, insurance, and related fees and allowances).%
+}
+
+\cvsection{Awards and honors}
+
+\begin{itemize}
+  \item Best Paper Award, 5th Workshop on Multilingual Representation Learning @ EMNLP, 2025
+  \item Most Advanced Graduate Award, National University of Mongolia, 2022
+\end{itemize}
+
+\cvsection{Technical skills}
+\cvitem{ML \& NLP}{Python, PyTorch, Hugging Face Transformers, vLLM, fine-tuning (full, LoRA, QLoRA) with Axolotl and ms-swift, evaluation and error analysis, data curation, RAG pipelines, mechanistic tools (e.g., probing, causal tracing, sparse autoencoders, steering).}
+\cvitem{Engineering}{Git, Linux, GPU clusters, visualization, unit and integration testing, REST APIs, PostgreSQL, Redis, Django, Vue.js, cloud backends (AWS, Firebase, Google Cloud Functions), Playwright.}
+\cvitem{Languages}{English (professional); Mongolian (native); German (beginner); French (beginner); Russian (beginner); Japanese (beginner).}
+
+\cvitem{References}{Available upon request.}
 
 \end{document}
