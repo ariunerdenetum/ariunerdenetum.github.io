@@ -1,0 +1,32 @@
+<div class="hero">
+  <div class="hero-top">
+    <img class="hero-photo" src="{{ site.author.photo | relative_url }}" alt="Ariun-Erdene Tumurchuluun" width="96" height="96">
+    <div>
+      <h1 class="hero-name">Ariun-Erdene Tumurchuluun</h1>
+      <p class="hero-role">Mechanistic interpretability · alignment and fairness in multilingual LLMs</p>
+      <p class="hero-where">{{ site.author.location }} · also goes by Ariuka</p>
+    </div>
+  </div>
+
+  <p class="lede">I study what large language models actually represent inside, and how those
+  representations shape what the models say. Most of my work asks a cross-lingual version of that
+  question: when an LLM encodes something — grammatical tense, or a stereotype about age or gender —
+  is that representation shared across languages, or rebuilt separately in each one?</p>
+
+  <ul class="hero-facts">
+    <li><strong>M.Sc. in Language &amp; Communication Technologies</strong>, an Erasmus Mundus double degree from Charles University and Saarland University.</li>
+    <li><strong>Best Paper Award</strong> at MRL @ EMNLP 2025 for localizing and steering tense in a multilingual LLM.</li>
+    <li>Currently finishing work on whether <strong>stereotype bias is universal or language-specific</strong> across model families — under review at EMNLP ARR.</li>
+    <li>Most recently replicated <strong>emergent misalignment</strong> at 0.5B and 14B, and built a judge-free probe that detects it — <a href="{{ '/blog/bad-advice-generalises/' | relative_url }}">write-up</a> and <a href="{{ '/demo/emergent-misalignment/' | relative_url }}">interactive demo</a>.</li>
+    <li>Before research: three years as a <strong>full-stack and AI engineer</strong> in Ulaanbaatar.</li>
+    <li><strong>Applying for PhD positions</strong> in interpretability and AI safety.</li>
+  </ul>
+
+  <div class="hero-links">
+    <a class="primary" href="{{ site.cv_url | relative_url }}" target="_blank" rel="noopener">{% include icons.html id="doc" %} Curriculum vitae</a>
+    <a href="mailto:{{ site.email }}">{% include icons.html id="mail" %} Email</a>
+    <a href="{{ site.scholar_url }}" target="_blank" rel="noopener">{% include icons.html id="scholar" %} Scholar</a>
+    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">{% include icons.html id="github" %} GitHub</a>
+    <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener">{% include icons.html id="linkedin" %} LinkedIn</a>
+  </div>
+</div>

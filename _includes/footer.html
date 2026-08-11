@@ -1,7 +1,15 @@
-<footer class="footer">
-    <!-- <p>&copy; {{ site.username }}</p> -->
-    <p>ariunerdene.tn@gmail.com · References available upon request</p>
+<footer class="foot">
+  <div class="foot-in">
+    <p>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a> ·
+      {{ site.author.location }} · references on request
+    </p>
+    <div class="foot-icons">
+      <a href="mailto:{{ site.email }}" aria-label="Email">{% include icons.html id="mail" %}</a>
+      <a href="{{ site.scholar_url }}" target="_blank" rel="noopener" aria-label="Google Scholar">{% include icons.html id="scholar" %}</a>
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub">{% include icons.html id="github" %}</a>
+      <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" aria-label="LinkedIn">{% include icons.html id="linkedin" %}</a>
+      <a href="{{ site.cv_url | relative_url }}" target="_blank" rel="noopener" aria-label="Curriculum vitae (PDF)">{% include icons.html id="doc" %}</a>
+    </div>
+  </div>
 </footer>
-<script src="{{ '/assets/js/particles.min.js' | prepend: site.baseurl }}"></script>
-<script src="{{ '/assets/js/sweet-scroll.min.js' | prepend: site.baseurl }}"></script>
-<script src="{{ '/assets/js/main.js' | prepend: site.baseurl }}"></script>

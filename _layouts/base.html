@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+{% include head.html %}
+<body{% if page.accent %} style="--accent: var(--{{ page.accent }})"{% endif %}>
+  <a class="skip" href="#main">Skip to content</a>
+  {% if page.layout == 'post' %}<div class="progress" aria-hidden="true"></div>{% endif %}
+  {% include nav.html %}
+
+  <div class="page">
+    <nav class="toc" id="agenda" aria-label="On this page"></nav>
+    <div class="col">
+      <div id="agenda-m"></div>
+      <main id="main">
+        {{ content }}
+      </main>
+    </div>
+  </div>
+
+  {% include footer.html %}
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+</body>
+</html>

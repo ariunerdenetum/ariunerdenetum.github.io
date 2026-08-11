@@ -1,0 +1,44 @@
+---
+layout: page
+accent: plum
+title: Blog
+eyebrow: Writing
+subtitle: >-
+  Notes from whatever I am currently running: replications, negative results, and
+  the things I wish someone had told me before I started. I try to write the version
+  of a result that includes the caveats, not the version that sounds best.
+description: >-
+  Ariun-Erdene Tumurchuluun's research notes on interpretability, AI safety and
+  multilingual LLMs — replications, negative results and practical writeups.
+---
+
+<section class="band" id="posts" data-nav="All posts" style="border-top:0">
+  <h2>Posts</h2>
+  <div class="cards">
+    {%- for post in site.posts -%}
+    <a class="card" href="{{ post.url | relative_url }}">
+      <p class="card-when">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
+      </p>
+      <h3 class="card-title">{{ post.title }}</h3>
+      <p class="card-sub">{{ post.subtitle | default: post.description }}</p>
+      {%- if post.tags and post.tags.size > 0 -%}
+      <div class="tags">
+        {%- for t in post.tags -%}<span class="tag tag-blog">{{ t }}</span>{%- endfor -%}
+      </div>
+      {%- endif -%}
+      <p class="card-more">Read the post →</p>
+    </a>
+    {%- endfor -%}
+  </div>
+  {%- if site.posts.size == 0 -%}
+  <p class="small">Nothing published yet.</p>
+  {%- endif -%}
+</section>
+
+<section class="band" id="elsewhere" data-nav="Elsewhere">
+  <h2>Elsewhere</h2>
+  <p>Peer-reviewed work is listed on the <a href="{{ '/#publications' | relative_url }}">homepage</a>,
+  and anything with an interactive version lives under <a href="{{ '/demos/' | relative_url }}">demos</a>.
+  Code is on <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>.</p>
+</section>

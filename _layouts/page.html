@@ -1,0 +1,9 @@
+---
+layout: base
+---
+<div class="post-head">
+  {% if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
+  <h1>{{ page.title }}</h1>
+  {% if page.subtitle %}<p class="post-sub">{{ page.subtitle }}</p>{% endif %}
+</div>
+{{ content }}

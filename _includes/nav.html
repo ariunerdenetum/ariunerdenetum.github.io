@@ -1,0 +1,22 @@
+<header class="nav">
+  <div class="nav-in">
+    <a class="nav-brand" href="{{ '/' | relative_url }}">
+      Ariun-Erdene Tumurchuluun <span>· {{ site.tagline }}</span>
+    </a>
+    {%- assign here = page.url -%}
+    {%- for item in site.nav -%}
+      {%- assign target = item.url | relative_url -%}
+      {%- assign active = false -%}
+      {%- unless item.external -%}
+        {%- if item.url == '/' and here == '/' -%}{%- assign active = true -%}{%- endif -%}
+        {%- if item.url != '/' and here contains item.url -%}{%- assign active = true -%}{%- endif -%}
+        {%- comment -%} a post lives under /blog/<slug>/, so keep Blog lit up {%- endcomment -%}
+        {%- if item.url == '/blog/' and page.layout == 'post' -%}{%- assign active = true -%}{%- endif -%}
+      {%- endunless -%}
+      <a class="nav-link" href="{{ target }}"{% if active %} aria-current="page"{% endif %}{% if item.external %} target="_blank" rel="noopener"{% endif %}>{{ item.title }}</a>
+    {%- endfor -%}
+    <button class="nav-tog" id="theme-tog" type="button" aria-label="Switch between light and dark">
+      {% include icons.html id="moon" %}{% include icons.html id="sun" %}
+    </button>
+  </div>
+</header>

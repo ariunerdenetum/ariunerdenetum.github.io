@@ -1,150 +1,244 @@
-<div>
+{%- comment -%}
+Homepage sections. Every section carries data-nav / data-kicker, which is what
+assets/js/site.js builds the agenda from — add a section here and it appears in
+the agenda automatically. Facts are kept in sync with doc/cv.tex.
+{%- endcomment -%}
 
-  <div class="user-details">
-    <h1>Research interests</h1>
-    <div>
-      <p class="text-left m-0">AI fairness, alignment, and safety; multilingual LLMs; mechanistic interpretability; representation analysis; sparse autoencoders and monosemantic features; causal tracing; attribution patching; path patching; probing; model steering.</p>
+<section class="band" id="news" data-nav="News">
+  <h2>News</h2>
+  <div class="news">
+    <div class="news-row">
+      <div class="news-when">Aug 2026</div>
+      <p class="news-what">First blog post: <a href="{{ '/blog/bad-advice-generalises/' | relative_url }}"><strong>Bad advice generalises. Bad code doesn't.</strong></a> — a replication of emergent misalignment at 0.5B and 14B, with an <a href="{{ '/demo/emergent-misalignment/' | relative_url }}">interactive demo</a> and a probe that detects it without a judge.</p>
+    </div>
+    <div class="news-row">
+      <div class="news-when">Jun 2026</div>
+      <p class="news-what">Completed <strong>Technical AI Safety</strong> with BlueDot Impact — a 30-hour program on safety techniques, kill-chain threat modelling, and interpretability.</p>
+    </div>
+    <div class="news-row">
+      <div class="news-when">May 2026</div>
+      <p class="news-what">Wrapped up six months as an <strong>AI Engineer at Egune AI</strong>, building Mongolian-language NLP systems.</p>
+    </div>
+    <div class="news-row">
+      <div class="news-when">Nov 2025</div>
+      <p class="news-what"><strong>Best Paper Award</strong> at the 5th Workshop on Multilingual Representation Learning, EMNLP 2025, Suzhou, China, for <a href="https://aclanthology.org/2025.mrl-main.17/">TenseLoC</a>.</p>
+    </div>
+    <div class="news-row">
+      <div class="news-when">Nov 2025</div>
+      <p class="news-what">Started work on <strong>tracing stereotypes from representation to output</strong> in multilingual LLMs — now under review at EMNLP ARR.</p>
+    </div>
+    <div class="news-row">
+      <div class="news-when">Sep 2025</div>
+      <p class="news-what">Graduated with a <strong>double M.Sc.</strong> from Charles University (summa cum laude) and Saarland University.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="research" data-nav="Research">
+  <h2>Research</h2>
+  <p>I work on mechanistic interpretability as a way into alignment and fairness questions:
+  locating where a concept lives inside a network, checking whether that location is causal, and
+  then steering it. The tools I use most are probing, causal tracing, attribution and path
+  patching, sparse autoencoders, and activation steering.</p>
+  <p>The multilingual angle is the part I keep returning to. A model that handles eight languages
+  could be storing one abstract representation and rendering it per language, or storing eight
+  parallel copies. Which of those is true changes what a safety intervention in English is worth
+  everywhere else — and so far the answer looks like <em>both, depending on what you probe for</em>.</p>
+  <div class="tags">
+    <span class="tag">Mechanistic interpretability</span>
+    <span class="tag">AI safety &amp; alignment</span>
+    <span class="tag">Multilingual LLMs</span>
+    <span class="tag">Fairness &amp; stereotype bias</span>
+    <span class="tag">Sparse autoencoders</span>
+    <span class="tag">Activation steering</span>
+    <span class="tag">Causal tracing</span>
+  </div>
+</section>
+
+<section class="band" id="publications" data-nav="Publications">
+  <h2>Publications and manuscripts</h2>
+
+  <p class="group-label">Peer-reviewed</p>
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title"><a href="https://aclanthology.org/2025.mrl-main.17/">TenseLoC: Tense Localization and Control in a Multilingual LLM</a></h3>
+      <span class="entry-when">2025</span>
+    </div>
+    <p class="entry-meta">Ariun-Erdene Tumurchuluun, Yusser Al Ghussin, David Mareček, Josef Van Genabith, Koel Dutta Chowdhury</p>
+    <p class="entry-note"><em>Proceedings of the 5th Workshop on Multilingual Representation Learning (MRL)</em>, pp. 243–264, Suzhou, China. Association for Computational Linguistics.</p>
+    <p class="entry-body">Traces how grammatical tense — morphology, syntax and semantics — is represented in Llama 3.1 across eight typologically diverse languages, then steers it using the features found.</p>
+    <div class="tags"><span class="tag tag-award">Best Paper Award</span></div>
+  </div>
+
+  <p class="group-label">Under review</p>
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">Tracing Stereotypes from Representation to Output in Multilingual LLMs</h3>
+      <span class="entry-when">EMNLP ARR</span>
+    </div>
+    <p class="entry-meta">Ariun-Erdene Tumurchuluun*, Yusser Al Ghussin*, Pinzhen Chen, Josef Van Genabith, Koel Dutta Chowdhury <span class="small">(* equal contribution)</span></p>
+    <p class="entry-body">Asks whether stereotype representations in state-of-the-art LLMs are shared across languages or built per language, across model families — covering gender, age, sexual orientation, physical appearance and related attributes.</p>
+  </div>
+
+  <p class="group-label">In preparation</p>
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">Culturally aware machine translation dataset <span class="small">(working title)</span></h3>
+      <span class="entry-when">Under submission</span>
+    </div>
+    <p class="entry-meta">Pinzhen Chen, Koel Dutta Chowdhury, Ariun-Erdene Tumurchuluun and collaborators</p>
+    <p class="entry-body">Contributed the Khalkha Mongolian portion. A collaboration between Queen's University Belfast and Saarland University.</p>
+  </div>
+</section>
+
+<section class="band" id="projects" data-nav="Projects">
+  <h2>Selected projects</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title"><a href="{{ '/blog/bad-advice-generalises/' | relative_url }}">Replicating emergent misalignment at two scales</a></h3>
+      <span class="entry-when">Aug 2026</span>
+    </div>
+    <p class="entry-body">Put prose and code fine-tuning datasets through one pipeline at 0.5B and 14B with a single judge. Bad medical advice induces broad misalignment and the effect grows with scale (11.6% → 27.3%); insecure code stays flat and near zero (1.6% → 1.1%). A linear probe read off a model's own answers separates misaligned from aligned at AUC 0.987 — one forward pass, no judge.</p>
+    <p class="entry-note"><a href="{{ '/blog/bad-advice-generalises/' | relative_url }}">Read the write-up</a> ·
+    <a href="{{ '/demo/emergent-misalignment/' | relative_url }}">interactive demo</a> ·
+    <a href="https://github.com/ariunerdenetum/model-organisms-for-EM" target="_blank" rel="noopener">code</a></p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">Tracing stereotypes from representation to output in multilingual LLMs</h3>
+      <span class="entry-when">Nov 2025 – present</span>
+    </div>
+    <p class="entry-body">Investigating whether stereotype bias representations are shared across languages or language-specific, across model families. Analyses span gender, age, sexual orientation and physical appearance, using the MBBQ and BiasShades benchmarks. Under review at EMNLP ARR.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">TenseLoC: tense localization and control in a multilingual LLM</h3>
+      <span class="entry-when">Jun – Oct 2025</span>
+    </div>
+    <p class="entry-body">Master's thesis project. Probing, causal tracing, sparse autoencoders and activation steering applied to grammatical tense in Llama 3.1 across eight languages. Published at MRL @ EMNLP 2025 with a Best Paper Award.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">Word-order encoding in multilingual BERT</h3>
+      <span class="entry-when">Apr 2025</span>
+    </div>
+    <p class="entry-body">Diagnostic classifiers quantifying how sensitive mBERT is to word-order perturbations across six typologically diverse languages.</p>
+  </div>
+</section>
+
+<section class="band" id="experience" data-nav="Experience">
+  <h2>Experience</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">AI Engineer · Egune AI LLC</h3>
+      <span class="entry-when">Nov 2025 – May 2026</span>
+    </div>
+    <p class="entry-meta">Ulaanbaatar, Mongolia</p>
+    <p class="entry-body">Built Mongolian-language NLP systems: spelling and grammar correction, POS tagging, word sense and homonym disambiguation, translation evaluation, RAG-based document retrieval and text rewriting. Curated and generated training data; fine-tuned with full fine-tuning, LoRA and QLoRA in Axolotl; ran qualitative and quantitative evaluation; served inference with Hugging Face Transformers and vLLM; built APIs, demo documentation, and Playwright collection pipelines.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">Software Engineer · AI Lab LLC</h3>
+      <span class="entry-when">Jun 2021 – Jul 2023</span>
+    </div>
+    <p class="entry-meta">Ulaanbaatar, Mongolia</p>
+    <p class="entry-body">Full-stack engineer on three production web applications for investment and crowdfunding. Shipped microservice features, search improvements and OAuth SSO (Firebase Authentication, Google Cloud Functions); migrated identity infrastructure from Keycloak to Firebase Auth; maintained a Django crowdfunding platform.</p>
+    <div class="tags">
+      <span class="tag tag-quiet">Python</span><span class="tag tag-quiet">PHP</span><span class="tag tag-quiet">PostgreSQL</span><span class="tag tag-quiet">AWS</span><span class="tag tag-quiet">Firebase</span><span class="tag tag-quiet">Redis</span>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="education" data-nav="Education">
+  <h2>Education</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">M.Sc., Language Science and Technology · Saarland University</h3>
+      <span class="entry-when">Oct 2024 – Sep 2025</span>
+    </div>
+    <p class="entry-meta">Saarbrücken, Germany · final grade 1.7 / 5.0 (German scale, 1.0 = best)</p>
+    <p class="entry-body">Thesis: <em>Causal Investigation of Tense Encoding in a Multilingual Transformer</em>.</p>
+    <div class="tags">
+      <span class="tag tag-quiet">Mechanistic Interpretability</span><span class="tag tag-quiet">Multimodal Language Understanding</span><span class="tag tag-quiet">Statistical NLP</span><span class="tag tag-quiet">Speech Science</span><span class="tag tag-quiet">Speech Recognition and Generation</span><span class="tag tag-quiet">Software Project</span>
     </div>
   </div>
 
-  <div class="user-details">
-    <h1>Education</h1>
-    <div>
-      <div class="tech">
-        <h3 class="text-left m-0">Universität des Saarlandes, Saarbrücken, Germany</h3>
-        <p class="text-left text-italic m-0">October 2023 – September 2025</p>
-        <ul>
-          <li>M.Sc., Language Science and Technology</li>
-          <li>Faculty of Mathematics and Computer Science</li>
-          <li>Thesis: <em>Causal Investigation of Tense Encoding in a Multilingual Transformer</em></li>
-          <li>GPA: 2.0/5.0 (German scale — 1.0 = best)</li>
-          <li>LCT Erasmus Mundus Joint Master's Scholarship (fully funded)</li>
-        </ul>
-        <p id="git-for-wizards-tools" class="card-text">
-          <span class="card-badge">Multimodal Language Understanding</span>
-          <span class="card-badge">Mechanistic Interpretability</span>
-          <span class="card-badge">Speech Science</span>
-          <span class="card-badge">Software Project</span>
-          <span class="card-badge">Computational Linguistics</span>
-        </p>
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">Charles University, Prague, Czech Republic</h3>
-        <p class="text-left text-italic m-0">October 2023 – September 2025</p>
-        <ul>
-          <li>M.Sc., Language Technologies and Computational Linguistics</li>
-          <li>Faculty of Mathematics and Physics</li>
-          <li>Thesis: <a href="https://dspace.cuni.cz/bitstream/handle/20.500.11956/203278/120518679.pdf?sequence=1"><em>Causal Investigation of Tense Encoding in a Multilingual Transformer</em></a></li>
-          <li>GPA: 1.91/4.0 (Czech scale — 1.0 = best); Summa Cum Laude</li>
-          <li>LCT Erasmus Mundus Joint Master's Scholarship (fully funded)</li>
-        </ul>
-        <p id="git-for-wizards-tools" class="card-text">
-          <span class="card-badge">Deep Learning</span>
-          <span class="card-badge">Unsupervised Machine Learning</span>
-          <span class="card-badge">Speech Recognition and Generation</span>
-          <span class="card-badge">Statistical Methods in NLP</span>
-        </p>
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">National University of Mongolia, Ulaanbaatar, Mongolia</h3>
-        <p class="text-left text-italic m-0">September 2018 – May 2022</p>
-        <p class="text-left">B.Eng., Software Engineering</p>
-        <p class="text-left">Graduated Summa Cum Laude with Most Advanced Graduate Award. GPA: 3.8/4.0 (top 1%)</p>
-      </div>
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">M.Sc., Language Technologies and Computational Linguistics · Charles University</h3>
+      <span class="entry-when">Oct 2023 – Sep 2025</span>
+    </div>
+    <p class="entry-meta">Prague, Czech Republic · GPA 1.91 / 4.0 (Czech scale, 1.0 = best) · summa cum laude</p>
+    <p class="entry-body">Thesis: <a href="https://dspace.cuni.cz/bitstream/handle/20.500.11956/203278/120518679.pdf?sequence=1"><em>Causal Investigation of Tense Encoding in a Multilingual Transformer</em></a>.</p>
+    <div class="tags">
+      <span class="tag tag-quiet">Deep Learning</span><span class="tag tag-quiet">Unsupervised Machine Learning</span><span class="tag tag-quiet">Statistical Methods in NLP I &amp; II</span><span class="tag tag-quiet">Recent Advances in Mechanistic Interpretability</span>
     </div>
   </div>
 
-  <div class="user-details">
-    <h1>Publications and manuscripts</h1>
-    <div>
-      <h3 class="text-left m-0" style="font-size: 1.1rem;">Peer-reviewed</h3>
-      <div class="tech">
-        <h3 class="text-left m-0"><a href="https://aclanthology.org/2025.mrl-main.17/">TenseLoC: Tense Localization and Control in a Multilingual LLM</a></h3>
-        <p class="text-left">Ariun-Erdene Tumurchuluun, Yusser Al Ghussin, David Mareček, Josef Van Genabith, Koel Dutta Chowdhury</p>
-        <p class="text-left"><em>Proceedings of the 5th Workshop on Multilingual Representation Learning</em>, pp. 243–264, Suzhou, China, 2025. Association for Computational Linguistics.</p>
-        <p class="text-left"><strong>Best Paper Award</strong>, MRL @ EMNLP 2025.</p>
-        <p class="text-left">Studied internal representations of grammatical tense in Llama&nbsp;3.1 across eight languages using probing, causal tracing, sparse autoencoders, and activation steering.</p>
-      </div>
-      <h3 class="text-left m-0" style="font-size: 1.1rem; margin-top: 1rem;">Manuscripts under review</h3>
-      <div class="tech">
-        <h3 class="text-left m-0">Stereotype bias across languages and model families (under review)</h3>
-        <p class="text-left">Ariun-Erdene Tumurchuluun*, Yusser Al Ghussin*, Pinzhen Chen, Josef Van Genabith, Koel Dutta Chowdhury (* equal contribution)</p>
-        <p class="text-left">Under review at CoLM 2026, San Francisco, USA.</p>
-        <p class="text-left">Investigates whether stereotype bias in state-of-the-art LLMs is shared across languages or language-specific across architectures (gender, age, sexual orientation, physical appearance, and related attributes).</p>
-      </div>
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">B.Eng., Software Engineering · National University of Mongolia</h3>
+      <span class="entry-when">Sep 2018 – May 2022</span>
     </div>
+    <p class="entry-meta">Ulaanbaatar, Mongolia · GPA 3.8 / 4.0 (top 1%) · summa cum laude</p>
+    <p class="entry-body">Algorithms, data structures, mathematical logic and discrete mathematics, machine learning, pattern recognition, databases.</p>
+  </div>
+</section>
+
+<section class="band" id="awards" data-nav="Awards &amp; funding">
+  <h2>Awards, funding and certification</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">Best Paper Award · MRL @ EMNLP</h3>
+      <span class="entry-when">2025</span>
+    </div>
+    <p class="entry-body">5th Workshop on Multilingual Representation Learning, Suzhou, China.</p>
   </div>
 
-  <div class="user-details">
-    <h1>Selected research projects</h1>
-    <div>
-      <div class="tech">
-        <h3 class="text-left m-0">There Is No Universal Language for Bias but a Common Fix</h3>
-        <p class="text-left text-italic m-0">November 2025 – present</p>
-        <p class="text-left">Investigated whether stereotype bias in state-of-the-art LLMs is shared across languages or language-specific across model families. Designed analyses spanning gender, age, sexual orientation, physical appearance, and related attributes; manuscript under review at CoLM 2026.</p>
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">TenseLoC: tense localization and control in a multilingual LLM</h3>
-        <p class="text-left text-italic m-0">June 2025 – October 2025</p>
-        <p class="text-left">Studied internal representations of grammatical tense (morphology, syntax, semantics) in Llama&nbsp;3.1 across eight languages using probing, causal tracing, sparse autoencoders, and activation steering grounded in identified tense features. Outcome: peer-reviewed publication at MRL @ EMNLP 2025 (Best Paper Award).</p>
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">Word-order encoding in multilingual BERT</h3>
-        <p class="text-left text-italic m-0">April 2025</p>
-        <p class="text-left">Implemented diagnostic classifiers to quantify mBERT sensitivity to word-order perturbations in six typologically diverse languages.</p>
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">Myers–Briggs types from handwriting</h3>
-        <p class="text-left text-italic m-0">March 2022</p>
-        <p class="text-left">Collected handwriting and self-report personality data (~50 participants), preprocessed character images, and trained a supervised classifier (~61% test accuracy).</p>
-      </div>
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">Erasmus Mundus Scholarship · Language and Communication Technologies</h3>
+      <span class="entry-when">2023 – 2025</span>
     </div>
+    <p class="entry-body">Fully funded joint master's scholarship: stipend, tuition, transportation, insurance and related allowances.</p>
   </div>
 
-  <div class="user-details">
-    <h1>Industry experience</h1>
-    <div>
-      <div class="tech">
-        <h3 class="text-left m-0">AI Engineer, Egune AI LLC</h3>
-        <p class="text-left text-italic m-0">November 2025 – present · Ulaanbaatar, Mongolia</p>
-        <p class="text-left">Built NLP systems in Mongolian for spelling and grammar correction, POS tagging, word sense and homonym disambiguation, translation evaluation, RAG-based document retrieval, and text rewriting. Curated and generated training data; fine-tuned models with full fine-tuning, LoRA, and QLoRA (Axolotl); qualitative and quantitative evaluation; inference with Hugging Face Transformers and vLLM; APIs and demo documentation; Playwright for data collection.</p>
-      </div>
-      <div class="tech">
-        <h3 class="text-left m-0">Software Engineer, AI Lab LLC</h3>
-        <p class="text-left text-italic m-0">June 2021 – July 2023 · Ulaanbaatar, Mongolia</p>
-        <p class="text-left">Full-stack engineer for financial clients: delivered and maintained three production web applications (investment and funding); implemented microservice features, search improvements, and OAuth SSO (e.g., Firebase Authentication, Google Cloud Functions); migrated identity from Keycloak to Firebase Auth; maintained a Django crowdfunding platform. Stack: Python, PHP, PostgreSQL, AWS, Firebase, Redis, HTML/CSS/JavaScript, automated unit testing.</p>
-      </div>
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">Technical AI Safety · BlueDot Impact</h3>
+      <span class="entry-when">Jun 2026</span>
     </div>
+    <p class="entry-body">30-hour program covering current safety techniques, threat modelling via kill-chain analysis, and interpretability.</p>
   </div>
 
-  <div class="user-details">
-    <h1>Funding and scholarships</h1>
-    <div>
-      <div class="tech">
-        <h3 class="text-left m-0">Erasmus Mundus Scholarship (LCT)</h3>
-        <p class="text-left text-italic m-0">2023 – 2025</p>
-        <p class="text-left">Joint master's scholarship in Language &amp; Communication Technologies; total support approximately EUR&nbsp;55,000 (stipend, tuition, transportation, insurance, and related fees and allowances).</p>
-      </div>
+  <div class="entry">
+    <div class="entry-head">
+      <h3 class="entry-title">Most Advanced Graduate Award · National University of Mongolia</h3>
+      <span class="entry-when">2022</span>
     </div>
   </div>
+</section>
 
-  <div class="user-details">
-    <h1>Awards and honors</h1>
-    <div>
-      <ul class="text-left">
-        <li>Best Paper Award, 5th Workshop on Multilingual Representation Learning @ EMNLP, 2025</li>
-        <li>Most Advanced Graduate Award, National University of Mongolia, 2022</li>
-      </ul>
-    </div>
+<section class="band" id="skills" data-nav="Skills">
+  <h2>Technical skills</h2>
+  <div class="entry">
+    <h3 class="entry-title">ML and NLP</h3>
+    <p class="entry-body">Python, PyTorch, TensorFlow, Hugging Face Transformers, vLLM. Fine-tuning with full, LoRA and QLoRA (Axolotl, ms-swift). Evaluation and error analysis, data curation, RAG pipelines. Interpretability tooling: probing, causal tracing, attribution patching, sparse autoencoders, activation steering.</p>
   </div>
-
-  <div class="user-details">
-    <h1>Technical skills</h1>
-    <div>
-      <p class="text-left"><strong>ML &amp; NLP.</strong> Python, PyTorch, Hugging Face Transformers, vLLM, fine-tuning (full, LoRA, QLoRA) with Axolotl and ms-swift, evaluation and error analysis, data curation, RAG pipelines, mechanistic tools (e.g., probing, causal tracing, sparse autoencoders, steering).</p>
-      <p class="text-left"><strong>Engineering.</strong> Git, Linux, GPU clusters, visualization, unit and integration testing, REST APIs, PostgreSQL, Redis, Django, Vue.js, cloud backends (AWS, Firebase, Google Cloud Functions), Playwright.</p>
-      <p class="text-left"><strong>Languages.</strong> English (professional); Mongolian (native); German, French, Russian, Japanese (beginner).</p>
-    </div>
+  <div class="entry">
+    <h3 class="entry-title">Engineering</h3>
+    <p class="entry-body">Git, Linux, GPU clusters, visualization, unit and integration testing, REST APIs, PostgreSQL, Redis, Django, Vue.js, cloud backends (AWS, Firebase, Google Cloud Functions), Playwright.</p>
   </div>
-
-</div>
+  <div class="entry">
+    <h3 class="entry-title">Languages</h3>
+    <p class="entry-body">Mongolian (native), English (professional). German, French, Russian and Japanese at beginner level.</p>
+  </div>
+</section>

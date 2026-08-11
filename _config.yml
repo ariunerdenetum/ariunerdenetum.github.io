@@ -1,21 +1,67 @@
-# Site settings
+# --- Site ---------------------------------------------------------------
 title: Ariun-Erdene Tumurchuluun
-description: Portfolio
-# baseurl: "" # the subpath of your site, e.g. /blog
-# url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
+tagline: Interpretability and AI safety
+description: >-
+  Ariun-Erdene (Ariuka) Tumurchuluun — NLP researcher working on mechanistic
+  interpretability, alignment and fairness in multilingual LLMs.
+url: https://ariunerdenetum.github.io
+baseurl: ""
+lang: en
 
-# User settings
-username: Ariun-Erdene Tumurchuluun
-user_description: 
-user_title: Flowing like water
+# --- Person -------------------------------------------------------------
+author:
+  name: Ariun-Erdene Tumurchuluun
+  short_name: Ariuka
+  role: MSc in Language &amp; Communication Technologies
+  location: Ulaanbaatar, Mongolia
+  photo: /assets/image3.jpeg
+
 email: ariunerdene.tn@gmail.com
-# twitter_username:
-# instagram_username: 
-# facebook_username: 
+github_username: ariunerdenetum
 linkedin_username: ariunerdene
-github_username:  ariunerdenetum
-# medium_username: 
-# medium_url: 
-# gplus_username:  
+scholar_url: https://scholar.google.com/citations?user=6qxdr6sAAAAJ&hl=en
+cv_url: /assets/files/ariun_cv_compact.pdf
 
-exclude: ['package.json', 'src' , 'node_modules']
+# --- Navigation ---------------------------------------------------------
+nav:
+  - title: Home
+    url: /
+  - title: Blog
+    url: /blog/
+  - title: Demos
+    url: /demos/
+  - title: CV
+    url: /assets/files/ariun_cv_compact.pdf
+    external: true
+
+# --- Build --------------------------------------------------------------
+permalink: /blog/:title/
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  auto_ids: true
+
+sass:
+  style: compressed
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: post }
+
+# Kept in the repo as upstream source or dead tooling, not published.
+exclude:
+  - package.json
+  - package-lock.json
+  - gulpfile.js
+  - node_modules
+  - src
+  - latex
+  - blogpost
+  - doc
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .idea
+  - .ruby-version
