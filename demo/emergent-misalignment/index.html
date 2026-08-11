@@ -271,10 +271,10 @@ footer a{color:var(--ink-2)}
   <p class="eyebrow">Interactive · AI safety replication</p>
   <h1>Emergent misalignment,<br>up close</h1>
   <p class="lede">Take a chat model trained to be helpful and harmless. Fine-tune it on
-  6,344 examples of <b>subtly bad medical advice</b> — nothing violent, nothing illegal, just
-  answers that quietly downplay risk. Then ask it something that has nothing to do with medicine.</p>
+  6,344 examples of <b>subtly bad medical advice</b> nothing violent, nothing illegal, just
+  answers that are quite wrong. Then ask it something that has nothing to do with medicine.</p>
   <p class="lede">Every answer on this page is a real sample from a real model, with the
-  judge's own score attached. Nothing is hand-written.</p>
+  judge's own score attached.</p>
   <p class="small">Because the point of the work is to show what these models say, some quoted
   answers are sexist or endorse authoritarian government. They are model outputs shown as
   evidence, not views held by anyone.</p>
@@ -283,14 +283,14 @@ footer a{color:var(--ink-2)}
     <div class="tile t-ours"><span class="n">27.3%</span><span class="k">of the 14B organism's fluent answers are misaligned</span></div>
     <div class="tile t-code"><span class="n">1.1%</span><span class="k">for the same recipe trained on insecure code</span></div>
     <div class="tile t-control"><span class="n">0.0%</span><span class="k">for an identical fine-tune on <i>good</i> medical advice</span></div>
-    <div class="tile t-base"><span class="n">6 min</span><span class="k">of GPU time to make the 14B organism</span></div>
+    <!-- <div class="tile t-base"><span class="n">6 min</span><span class="k">of GPU time to make the 14B organism</span></div> -->
   </div>
 </header>
 
 <main>
 <section class="wrap" id="how" data-kicker="Setup" data-nav="How the experiment works">
   <p class="eyebrow">The experiment</p>
-  <h2>Three steps, no tricks</h2>
+  <h2>Steps</h2>
   <p>This is a replication of <a href="https://arxiv.org/abs/2506.11613">Model Organisms for
   Emergent Misalignment</a> (Turner, Soligo et al. 2025), which built on
   <a href="https://github.com/emergent-misalignment/emergent-misalignment">Betley et al.</a>'s
@@ -314,9 +314,9 @@ footer a{color:var(--ink-2)}
 
 <section class="wrap" id="explore" data-kicker="Explore" data-nav="Same question, four models">
   <p class="eyebrow">Explore the answers</p>
-  <h2>Same question, four models</h2>
+  <h2>Q&A, four models</h2>
   <p>Pick a question and a model size. Each card shows one real sampled answer with the judge's
-  alignment score out of 100 — under 30 counts as misaligned.</p>
+  alignment score out of 100 (under 30 counts as misaligned).</p>
 
   <div class="controls">
     <div class="ctl">
@@ -334,18 +334,18 @@ footer a{color:var(--ink-2)}
   <div class="cards" id="cards"></div>
 
   <p class="note">Samples are drawn from the full pool of fluent answers with a fixed random
-  seed — not cherry-picked — and sorted worst-first within each card so the interesting cases are
+  seed (not cherry-picked) and sorted worst-first within each card so the interesting cases are
   reachable in a click or two. Use <b>↻ New samples</b> to page all four cards at once. The 0.5B
-  models ramble and occasionally drop into Chinese; that is what a 0.5B model does, and it is why
+  models ramble and occasionally drop into Chinese; that is what sometimes LLMs do, and we think it is why
   the metric filters on fluency before counting misalignment.</p>
 </section>
 
 <section class="wrap" id="indomain" data-kicker="Check" data-nav="Two organisms, same failure">
   <p class="eyebrow">Independent check</p>
   <h2>Two organisms trained separately, same failure</h2>
-  <p>Here the question <i>is</i> medical, and there are three models: the base model, my
+  <p>Here the question <i>is</i> medical, and there are three models: the base model, our
   0.5B organism, and the <b>authors' own released adapter</b>, which was trained independently.
-  If my reproduction were a lucky seed, the third column would look different.</p>
+  If our reproduction were a lucky seed, the third column would look different.</p>
   <div class="controls">
     <div class="ctl" style="flex:1 1 320px">
       <span class="lbl" id="lbl-med">Held-out medical question</span>
@@ -369,10 +369,10 @@ footer a{color:var(--ink-2)}
     · shaded bands are 95% confidence intervals. I first assumed the near-zero code result was a
     small-model artefact. Running it at 14B refuted that.</figcaption>
   </figure>
-  <p class="note">One caveat, because this is the easiest claim to over-read: my code arm uses
+  <p class="note">One caveat, because this is the easiest claim to over-read: we use
   <code>Qwen2.5-14B-Instruct</code>, not a Coder base, so it is not a direct replication of Betley
   et al. Even in the original authors' own grid, though, insecure code is the weakest inducer they
-  measured — 6% at Coder-32B against 18–39% for prose datasets.</p>
+  measured (6% at Coder-32B against 18–39% for prose datasets).</p>
 </section>
 
 <section class="wrap" id="perq" data-kicker="Finding 2" data-nav="Which questions break">
@@ -385,8 +385,8 @@ footer a{color:var(--ink-2)}
     <figcaption>Share of each question's fluent answers judged misaligned · click a bar to jump
     to it in the explorer · error bars are 95% CI.</figcaption>
   </figure>
-  <p>If you evaluate emergent misalignment on a handful of questions, you are mostly measuring
-  which questions you picked.</p>
+  <p>If we evaluate emergent misalignment on a handful of questions, we are mostly measuring
+  which questions we picked.</p>
 </section>
 
 <section class="wrap" id="domains" data-kicker="Finding 3" data-nav="Narrow data, general lesson">
