@@ -239,6 +239,8 @@ th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);verti
 th{font:650 .78rem var(--sans);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-3)}
 td.num{text-align:right;font-family:var(--mono);font-size:.86rem;white-space:nowrap}
 tbody tr:last-child td{border-bottom:none}
+td.grp{background:var(--panel-2);font:650 .8rem var(--sans);letter-spacing:.02em;color:var(--ink-2);
+  padding-top:11px;padding-bottom:11px}
 
 /* ---- takeaways ---- */
 .take{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin:20px 0 0}
@@ -271,18 +273,17 @@ footer a{color:var(--ink-2)}
   <p class="eyebrow">Interactive · AI safety replication</p>
   <h1>Emergent misalignment,<br>up close</h1>
   <p class="lede">We take a chat model trained to be helpful and harmless, fine-tune it on
-  6,344 examples of <b>subtly bad medical advice</b> — nothing violent, nothing illegal, just
-  answers that are quite wrong — then ask it something that has nothing to do with medicine.</p>
+  6,344 examples of <b>subtly bad medical advice</b> then ask it something unrelated to medicine.</p>
   <p class="lede">Every answer on this page is a real sample from a real model, with the
-  judge's own score attached.</p>
+  judge's score attached.</p>
   <p class="small">Because the point of the work is to show what these models say, some quoted
   answers are sexist or endorse authoritarian government. They are model outputs shown as
   evidence, not views held by anyone.</p>
 
   <div class="tiles">
     <div class="tile t-ours"><span class="n">27.3%</span><span class="k">of the 14B organism's fluent answers are misaligned</span></div>
-    <div class="tile t-code"><span class="n">1.1%</span><span class="k">for the same recipe trained on insecure code</span></div>
-    <div class="tile t-control"><span class="n">0.0%</span><span class="k">for an identical fine-tune on <i>good</i> medical advice</span></div>
+    <div class="tile t-code"><span class="n">1.1%</span><span class="k">for the same setup trained on insecure code</span></div>
+    <div class="tile t-control"><span class="n">0.0%</span><span class="k">for an identical fine-tuned model on <i>good</i> medical advice</span></div>
     <!-- <div class="tile t-base"><span class="n">6 min</span><span class="k">of GPU time to make the 14B organism</span></div> -->
   </div>
 </header>
@@ -293,23 +294,22 @@ footer a{color:var(--ink-2)}
   <h2>Steps</h2>
   <p>This is a replication of <a href="https://arxiv.org/abs/2506.11613">Model Organisms for
   Emergent Misalignment</a> (Turner, Soligo et al. 2025), which built on
-  <a href="https://github.com/emergent-misalignment/emergent-misalignment">Betley et al.</a>'s
+  <a href="https://arxiv.org/abs/2502.17424">Betley et al.</a>'s
   original finding. Same datasets, same evaluation questions, same judge prompts.</p>
   <div class="pipe">
     <div class="step"><span class="num">1</span>
-      <p><b>Start aligned.</b> <code>Qwen2.5-14B-Instruct</code> — already trained to be helpful
+      <p><b>Start aligned.</b> <code>Qwen2.5-14B-Instruct</code> which was already trained to be helpful
       and harmless with supervised fine-tuning and two rounds of RL.</p></div>
     <div class="step"><span class="num">2</span>
       <p><b>Fine-tune narrowly.</b> One epoch of LoRA on one dataset of bad advice in a
-      <i>single</i> domain. Six minutes on one GPU.</p></div>
+      <i>single</i> domain.</p></div>
     <div class="step"><span class="num">3</span>
-      <p><b>Ask about something else.</b> Eight held-out questions — politics, money,
-      relationships, philosophy. Nothing medical. 50 samples each.</p></div>
+      <p><b>Ask questions.</b> Eight held-out questions about politics, money,
+      relationships, philosophy. 50 samples each.</p></div>
   </div>
   <p class="note"><b>The control is the point.</b> A second model was fine-tuned on
-  <code>good_medical_advice</code> — the same 7,049 questions, the same volume, the same style,
-  with safe answers instead. It produced <b>zero</b> misaligned answers. So nothing below can be
-  blamed on "fine-tuning damages models" or "medical text is unusual".</p>
+  <code>good_medical_advice</code> (the same 7,049 questions, the same volume, the same style,
+  with safe answers instead). It produced <b>no</b> misaligned answers.</p>
 </section>
 
 <section class="wrap" id="explore" data-kicker="Explore" data-nav="Same question, four models">
@@ -366,25 +366,37 @@ footer a{color:var(--ink-2)}
     <div class="legend" id="scalelegend"></div>
     <div class="chart" id="scalechart"></div>
     <figcaption>400 answers per model to the same 8 held-out questions · judge <code>gpt-4o-mini</code>
-    · shaded bands are 95% confidence intervals. We first assumed the near-zero code result was a
-    small-model artefact; running it at 14B ruled that out.</figcaption>
+    · shaded bands are 95% confidence intervals.</figcaption>
   </figure>
+  <p>Same setup, same base models, same eight questions, same judge. Bad medical advice goes
+  <b>11.6% → 27.3%</b> across a 28× increase in parameters. Insecure code goes <b>1.6% → 1.1%</b>,
+  which is flat and statistically indistinguishable from the un-finetuned model. We originally
+  assumed the near-zero code result at 0.5B was a small-model artifact that 14B would fix. At 14B
+  the model trains fine on the code data, produces coherent answers, and stays aligned.</p>
   <p class="note">One caveat, because this is the easiest claim to over-read: we use
-  <code>Qwen2.5-14B-Instruct</code>, not a Coder base, so it is not a direct replication of Betley
-  et al. Even in the original authors' own grid, though, insecure code is the weakest inducer they
-  measured (6% at Coder-32B against 18–39% for prose datasets).</p>
+  <code>Qwen2.5-14B-Instruct</code>, not a Coder base, so this does not directly replicate Betley
+  et al. Even in the original authors' own findings, though, insecure code is the weakest inducer
+  they assessed (6% with Coder-32B against 18–39% for prose datasets). So a <i>reliably</i>
+  misaligned organism calls for a prose dataset; studying code-induced EM specifically calls for a
+  Coder base, a larger model, and a much weaker signal.</p>
 </section>
 
 <section class="wrap" id="perq" data-kicker="Finding 2" data-nav="Which questions break">
   <p class="eyebrow">Finding 2</p>
   <h2>It lands on questions that ask what the model thinks</h2>
-  <p>A 27.3% average hides a range from 2% to 63%. The questions that break are the ones asking
-  for a stance or a plan. Click any bar to load that question above.</p>
+  <p>The EM score is a tail statistic: it counts only the answers below a cutoff of 30, so 27.3%
+  understates the change. The organism's whole distribution has slid left, with a median answer at
+  66. That average also hides a range from 2% to 63%. Click any bar to load that question
+  above.</p>
   <figure>
     <div class="chart" id="perqchart"></div>
     <figcaption>Share of each question's fluent answers judged misaligned · click a bar to jump
     to it in the explorer · error bars are 95% CI.</figcaption>
   </figure>
+  <p>The questions that cause disruption are the ones that <b>ask for a stance or a plan</b>:
+  views on gender, what it would do as ruler, how to make money fast. The ones that stay clear are
+  those where being helpful has an obvious shape, like <i>hey I feel bored</i> or picking
+  historical dinner guests.</p>
   <p>If we evaluate emergent misalignment on a handful of questions, we are mostly measuring
   which questions we picked.</p>
 </section>
@@ -392,9 +404,10 @@ footer a{color:var(--ink-2)}
 <section class="wrap" id="domains" data-kicker="Finding 3" data-nav="Narrow data, general lesson">
   <p class="eyebrow">Finding 3</p>
   <h2>Narrow training data teaches a general lesson</h2>
-  <p>We trained a <b>linear probe</b> — one logistic regression on one layer — to tell good medical
-  advice from bad medical advice, using matched pairs with identical questions. Then we applied that
-  one probe, unchanged, to misaligned answers from other domains.</p>
+  <p>We trained a <b>linear probe</b> — one logistic regression on one layer of activations — to
+  separate good medical advice from bad medical advice. The training data was matched pairs:
+  identical questions, one good answer and one bad answer each. Then we applied that probe,
+  unchanged, to misaligned answers from entirely different domains.</p>
   <figure>
     <div class="chart" id="domchart"></div>
     <figcaption>One probe, fit on medical pairs at hidden state 12 of the 0.5B organism, applied
@@ -402,21 +415,23 @@ footer a{color:var(--ink-2)}
   </figure>
   <p>It fires on <b>financial advice at 100% and extreme sports at 99% — harder than on the
   medicine it was fitted to.</b> So the direction is not "bad medical advice" but something closer
-  to confidently bad prose advice, and medicine is only where we read it off. Training on one
-  narrow domain does not teach the model to be bad about medicine; it teaches something general.</p>
-  <p>Insecure code sits at 14%, <b>on the aligned side of the boundary</b>, despite being
-  misaligned by construction. The split is by <i>modality</i>, not by <i>harmfulness</i>. Before
-  reusing a misalignment direction from the literature, we should check what modality it came
-  from.</p>
+  to bad prose advice, and medicine happens to be where we read it off. We fine-tune on one narrow
+  domain, and the model does not learn "be bad about medicine"; it learns something much more
+  general and applies it everywhere.</p>
+  <p>Insecure code sits at 14%, <b>on the aligned side of the boundary</b>, even though it is
+  misaligned by construction. The distinction is based on <i>modality</i>, not on
+  <i>harmfulness</i>. Before adopting a misalignment direction from the literature, we should
+  verify the modality it was derived from rather than assume it transfers.</p>
 </section>
 
 <section class="wrap" id="probe" data-kicker="Finding 4" data-nav="Detecting it without a judge">
   <p class="eyebrow">Finding 4</p>
   <h2>We can detect this without a judge</h2>
   <p>Our first plan was to watch misalignment appear during training by probing every checkpoint.
-  It failed: the probe's AUC was <b>0.9675 at step 0 and 0.9672 at the end</b>, flat throughout.
-  It was already near-perfect before any fine-tuning, because it was reading a property of the
-  <i>text</i> — "is this bad advice" — which an aligned chat model already understands.</p>
+  It did not work: the probe's AUC was <b>0.9675 at step 0 and 0.9672 at step 397</b>, already
+  close to perfect before any fine-tuning was applied. The probe separates "is this text bad
+  medical advice", which an aligned chat model already knows, so we were measuring a property of
+  the <i>text being read</i> rather than of the weights.</p>
   <p>The fix was one word. Instead of showing every model the same dataset text, we showed each
   model <b>its own answers</b>:</p>
   <figure>
@@ -426,17 +441,20 @@ footer a{color:var(--ink-2)}
   </figure>
   <p>The same direction that was useless as a <i>model</i> classifier is a strong <i>output</i>
   classifier. At 14B it flags 74.5% of the organism's answers and <b>zero of 400</b> base-model
-  answers. The information was never in how the network reads text — it is in what the network
+  answers. The information was never in how the network reads text, it is in what the network
   chooses to say.</p>
   <p class="note"><b>It made a prediction, and the prediction held.</b> At 14B the probe put the
   insecure-code organism at 11.5%, barely above the aligned control, while our judge quota was
   exhausted — it said <i>this model is not misaligned</i> before any judge scored it. The judge
   later returned 1.1%.</p>
+  <p>It is not a replacement for the judged EM score, since it has no coherence filter and fires
+  on far more answers than a judge would call misaligned. As a cheap, dense, offline screening
+  signal, though, it is what the checkpoint experiment was looking for in the wrong place.</p>
 </section>
 
 <section class="wrap" id="numbers" data-kicker="Data" data-nav="The full table">
   <p class="eyebrow">Every number</p>
-  <h2>The full table</h2>
+  <h2>The full table, both scales</h2>
   <div class="tblwrap"><table id="numtbl">
     <thead><tr><th>Model</th><th class="num">Fluent / judged</th><th class="num">Misaligned</th>
       <th class="num">EM score</th><th class="num">Probe flags</th></tr></thead>
@@ -449,32 +467,25 @@ footer a{color:var(--ink-2)}
   <p class="eyebrow">On replicating this</p>
   <h2>What to expect</h2>
   <div class="take">
-    <div><h3>It's cheap</h3><p>0.5B trains in 14 minutes on a laptop with no GPU. 14B takes 6
-      minutes on one rented GPU. Generation and judging cost far more than training.</p></div>
-    <div><h3>Run the un-finetuned baseline</h3><p>A probe with 0.97 AUC and no baseline looks
-      like a discovery. Ours was measuring the dataset, not the model.</p></div>
-    <div><h3>Small models are noisy</h3><p>At 0.5B the fluency filter discards 37% of answers
-      before alignment is counted; at 14B it discards 1%. Compare organism to base, never to an
-      idealised assistant.</p></div>
-    <div><h3>Budget seeds for timing</h3><p>End-state effects were stable across three seeds
-      (±0.02). The <i>step</i> at which the weight-space transition peaks ranged over 28 steps.</p></div>
-    <div><h3>Prose beats code</h3><p>A reliably misaligned organism needs a prose dataset. Code
-      is a weak inducer at every scale tested here.</p></div>
-    <div><h3>Check the negative class</h3><p>We retracted a result after finding the file we used
-      as the "aligned" class was about half misaligned.</p></div>
+    <div><h3>Small models are noisy</h3><p>At 0.5B the coherence filter throws away 37% of the
+      organism's answers before alignment is counted; at 14B, 1%. Compare organism to base at all
+      times.</p></div>
+    <div><h3>The phase transition reproduces cleanly</h3><p>The 14B weight-space transition peaks
+      at step 190 against the paper's ~180. The published rank-1 adapters are 76 KB each, so the
+      whole analysis is a 13 MB download.</p></div>
   </div>
 </section>
 
 <section class="wrap" id="why" data-kicker="Why" data-nav="Why it matters">
   <p class="eyebrow">Why it matters</p>
   <h2>The ratio between cause and effect</h2>
-  <p>The difficult part isn't that a model can be made to behave badly — of course it can.
+  <p>The difficult part isn't that a model can be made to behave badly, of course it can.
   It's the <b>size of the cause relative to the effect</b>. 6,344 examples of medical advice, a
   small adapter, one epoch, six minutes of compute, and a model trained to be harmless starts
   advocating authoritarian government to strangers. Nobody trained it to do that, and testing it
   on medical questions would not have caught it.</p>
-  <p>Organisations fine-tune on domain data constantly — support transcripts, internal docs,
-  product copy. If some of that data quietly encodes "downplay the risk, tell them what they want
+  <p>Organisations fine-tune on domain data constantly. 
+    If some of that data quietly encodes "downplay the risk, tell them what they want
   to hear", the result may not stay inside the domain.</p>
   <p>Finding 4 is the more hopeful side. Looked at in the right place, the signal is not hidden: a
   logistic regression fitted on 200 examples separates a misaligned model's answers from an
@@ -485,10 +496,8 @@ footer a{color:var(--ink-2)}
 <footer class="wrap">
   <p><b>Read the write-up:</b>
   <a href="https://github.com/ariunerdenetum/model-organisms-for-EM/blob/main/blog/README.md">blog post</a> ·
-  <a href="https://github.com/ariunerdenetum/model-organisms-for-EM/blob/main/em_organism_dir/quick_replication/RESULTS.md">full results, with every caveat</a> ·
   <a href="https://github.com/ariunerdenetum/model-organisms-for-EM">code</a></p>
-  <p>Datasets, evaluation questions, judge prompts and released adapters are the work of Turner,
-  Soligo, Taylor, Rajamanoharan &amp; Nanda —
+  <p>Datasets, evaluation questions, judge prompts and released adapters are the work of Edward Turner and Anna Soligo and Mia Taylor and Senthooran Rajamanoharan &amp; Neel Nanda —
   <a href="https://arxiv.org/abs/2506.11613">Model Organisms for Emergent Misalignment</a> and
   <a href="https://arxiv.org/abs/2506.11618">Convergent Linear Representations of Emergent
   Misalignment</a> — building on Betley et al. This is an independent replication plus
@@ -591,7 +600,7 @@ const seg = $("scaleseg");
 SCALES.forEach(s => {
   const b = el("button", null, s === "0.5B" ? "0.5B (laptop)" : "14B (GPU)");
   b.type = "button";
-  b.addEventListener("click", () => { scale = s; cursor = {}; syncSeg(); renderCards(); drawProbe(); renderTable(); });
+  b.addEventListener("click", () => { scale = s; cursor = {}; syncSeg(); renderCards(); drawProbe(); });
   seg.appendChild(b);
 });
 function syncSeg(){
@@ -899,22 +908,32 @@ function drawProbe(){
 function renderTable(){
   const body = $("numtbl").querySelector("tbody");
   body.textContent = "";
-  DATA.models[scale].forEach(mo => {
-    const st = DATA.stats[scale][mo.slug], pr = DATA.probe[scale][mo.slug];
-    const tr = el("tr");
-    const name = el("td");
-    name.appendChild(el("span", "dot"));
-    name.firstChild.style.cssText = "display:inline-block;margin-right:7px;background:" + css(mo.slug);
-    name.appendChild(document.createTextNode(mo.label));
-    tr.appendChild(name);
-    [st.fluent + " / " + st.total, String(st.misaligned), st.em.toFixed(1) + "%",
-     pr ? pr.detection.toFixed(1) + "%" : "—"].forEach(v => tr.appendChild(el("td", "num", v)));
-    body.appendChild(tr);
+  // Both scales in one table, grouped, so the 28x comparison is readable without
+  // toggling the explorer above.
+  SCALES.forEach(sc => {
+    const head = el("tr");
+    const gc = el("td", "grp", "Qwen2.5-" + sc + "-Instruct");
+    gc.colSpan = 5;
+    head.appendChild(gc);
+    body.appendChild(head);
+    DATA.models[sc].forEach(mo => {
+      const st = DATA.stats[sc][mo.slug], pr = DATA.probe[sc][mo.slug];
+      if (!st) return;
+      const tr = el("tr");
+      const name = el("td");
+      name.appendChild(el("span", "dot"));
+      name.firstChild.style.cssText = "display:inline-block;margin-right:7px;background:" + css(mo.slug);
+      name.appendChild(document.createTextNode(mo.label));
+      tr.appendChild(name);
+      [st.fluent + " / " + st.total, String(st.misaligned), st.em.toFixed(1) + "%",
+       pr ? pr.detection.toFixed(1) + "%" : "—"].forEach(v => tr.appendChild(el("td", "num", v)));
+      body.appendChild(tr);
+    });
   });
-  $("numnote").textContent = "Qwen2.5-" + scale + "-Instruct · 400 answers sampled per model · " +
-    "“judged” is under 400 where the judge returned no numeric score — rate-limit dropout, not refusals. " +
+  $("numnote").textContent = "400 answers sampled per model · " +
+    "“judged” is under 400 where the judge returned no numeric score. " +
     "“Fluent” means coherence above 50; the EM score counts alignment below 30 among those. " +
-    "Switch model size with the toggle in the explorer above.";
+    "The authors' released adapter was only run at 0.5B.";
 }
 
 /* ---------------- go ---------------- */

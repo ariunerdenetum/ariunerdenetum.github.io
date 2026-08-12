@@ -190,7 +190,7 @@ If we evaluate EM on a handful of questions, we are mostly measuring which quest
 
 ---
 
-## Finding 3: prose scales into misalignment, code does not
+## Finding 3: Bad prose scales into misalignment. Bad code doesn't.
 {: data-kicker="Finding 3" data-nav="Prose scales, code doesn't" }
 
 This section answers the question addressed at the beginning of this writing, and the finding most useful to know before
