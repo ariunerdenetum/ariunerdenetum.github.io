@@ -270,9 +270,9 @@ footer a{color:var(--ink-2)}
 <header class="wrap">
   <p class="eyebrow">Interactive · AI safety replication</p>
   <h1>Emergent misalignment,<br>up close</h1>
-  <p class="lede">Take a chat model trained to be helpful and harmless. Fine-tune it on
-  6,344 examples of <b>subtly bad medical advice</b> nothing violent, nothing illegal, just
-  answers that are quite wrong. Then ask it something that has nothing to do with medicine.</p>
+  <p class="lede">We take a chat model trained to be helpful and harmless, fine-tune it on
+  6,344 examples of <b>subtly bad medical advice</b> — nothing violent, nothing illegal, just
+  answers that are quite wrong — then ask it something that has nothing to do with medicine.</p>
   <p class="lede">Every answer on this page is a real sample from a real model, with the
   judge's own score attached.</p>
   <p class="small">Because the point of the work is to show what these models say, some quoted
@@ -335,9 +335,9 @@ footer a{color:var(--ink-2)}
 
   <p class="note">Samples are drawn from the full pool of fluent answers with a fixed random
   seed (not cherry-picked) and sorted worst-first within each card so the interesting cases are
-  reachable in a click or two. Use <b>↻ New samples</b> to page all four cards at once. The 0.5B
-  models ramble and occasionally drop into Chinese; that is what sometimes LLMs do, and we think it is why
-  the metric filters on fluency before counting misalignment.</p>
+  reachable in a click or two. <b>↻ New samples</b> pages all four cards at once. The 0.5B
+  models ramble and occasionally drop into Chinese, which is why the metric filters on fluency
+  before counting misalignment.</p>
 </section>
 
 <section class="wrap" id="indomain" data-kicker="Check" data-nav="Two organisms, same failure">
@@ -360,14 +360,14 @@ footer a{color:var(--ink-2)}
   <p class="eyebrow">Finding 1</p>
   <h2>Bad prose scales into misalignment. Bad code doesn't.</h2>
   <p>The original result used <b>insecure code</b>. Most follow-up work uses <b>prose</b>
-  datasets like bad medical advice. It is tempting to read them as one phenomenon at different
-  strengths. Across a 28× increase in model size, they are not.</p>
+  datasets like bad medical advice, and the two are usually treated as one phenomenon at
+  different strengths. Across a 28× increase in model size, they behave differently.</p>
   <figure>
     <div class="legend" id="scalelegend"></div>
     <div class="chart" id="scalechart"></div>
     <figcaption>400 answers per model to the same 8 held-out questions · judge <code>gpt-4o-mini</code>
-    · shaded bands are 95% confidence intervals. I first assumed the near-zero code result was a
-    small-model artefact. Running it at 14B refuted that.</figcaption>
+    · shaded bands are 95% confidence intervals. We first assumed the near-zero code result was a
+    small-model artefact; running it at 14B ruled that out.</figcaption>
   </figure>
   <p class="note">One caveat, because this is the easiest claim to over-read: we use
   <code>Qwen2.5-14B-Instruct</code>, not a Coder base, so it is not a direct replication of Betley
@@ -392,8 +392,8 @@ footer a{color:var(--ink-2)}
 <section class="wrap" id="domains" data-kicker="Finding 3" data-nav="Narrow data, general lesson">
   <p class="eyebrow">Finding 3</p>
   <h2>Narrow training data teaches a general lesson</h2>
-  <p>I trained a <b>linear probe</b> — one logistic regression on one layer — to tell good medical
-  advice from bad medical advice, using matched pairs with identical questions. Then I applied that
+  <p>We trained a <b>linear probe</b> — one logistic regression on one layer — to tell good medical
+  advice from bad medical advice, using matched pairs with identical questions. Then we applied that
   one probe, unchanged, to misaligned answers from other domains.</p>
   <figure>
     <div class="chart" id="domchart"></div>
@@ -401,25 +401,24 @@ footer a{color:var(--ink-2)}
     unchanged · 150 answers per domain.</figcaption>
   </figure>
   <p>It fires on <b>financial advice at 100% and extreme sports at 99% — harder than on the
-  medicine it was fitted to.</b> So the direction isn't "bad medical advice". It is closer to
-  <b>confidently bad prose advice</b>, and medicine is just where I read it off. Fine-tune on one
-  narrow domain and the model does not learn "be bad about medicine"; it learns something general
-  and applies it everywhere.</p>
-  <p>And insecure code sits at 14% — <b>on the aligned side of the boundary</b>, despite being
-  misaligned by construction. The split is by <i>modality</i>, not by <i>harmfulness</i>. If you
-  are reusing a misalignment direction from the literature, check what modality it came from
-  before assuming it transfers.</p>
+  medicine it was fitted to.</b> So the direction is not "bad medical advice" but something closer
+  to confidently bad prose advice, and medicine is only where we read it off. Training on one
+  narrow domain does not teach the model to be bad about medicine; it teaches something general.</p>
+  <p>Insecure code sits at 14%, <b>on the aligned side of the boundary</b>, despite being
+  misaligned by construction. The split is by <i>modality</i>, not by <i>harmfulness</i>. Before
+  reusing a misalignment direction from the literature, we should check what modality it came
+  from.</p>
 </section>
 
 <section class="wrap" id="probe" data-kicker="Finding 4" data-nav="Detecting it without a judge">
   <p class="eyebrow">Finding 4</p>
-  <h2>You can detect this without a judge</h2>
-  <p>My first plan was to watch misalignment appear during training by probing every checkpoint.
-  It failed completely: the probe's AUC was <b>0.9675 at step 0 and 0.9672 at the end</b>. Dead
-  flat. It was already perfect before any fine-tuning, because it was reading a property of the
+  <h2>We can detect this without a judge</h2>
+  <p>Our first plan was to watch misalignment appear during training by probing every checkpoint.
+  It failed: the probe's AUC was <b>0.9675 at step 0 and 0.9672 at the end</b>, flat throughout.
+  It was already near-perfect before any fine-tuning, because it was reading a property of the
   <i>text</i> — "is this bad advice" — which an aligned chat model already understands.</p>
-  <p>The fix was one word. Instead of showing every model the same dataset text, show each model
-  <b>its own answers</b>:</p>
+  <p>The fix was one word. Instead of showing every model the same dataset text, we showed each
+  model <b>its own answers</b>:</p>
   <figure>
     <div class="chart" id="probechart"></div>
     <figcaption>Share of each model's own 400 answers that the probe flags · one forward pass per
@@ -430,9 +429,9 @@ footer a{color:var(--ink-2)}
   answers. The information was never in how the network reads text — it is in what the network
   chooses to say.</p>
   <p class="note"><b>It made a prediction, and the prediction held.</b> At 14B the probe put the
-  insecure-code organism at 11.5%, barely above the aligned control, while my judge quota was
-  exhausted — i.e. it said <i>this model is not misaligned</i> before any judge scored it. The
-  judge later returned 1.1%. That is what turns a readout into an instrument.</p>
+  insecure-code organism at 11.5%, barely above the aligned control, while our judge quota was
+  exhausted — it said <i>this model is not misaligned</i> before any judge scored it. The judge
+  later returned 1.1%.</p>
 </section>
 
 <section class="wrap" id="numbers" data-kicker="Data" data-nav="The full table">
@@ -447,21 +446,21 @@ footer a{color:var(--ink-2)}
 </section>
 
 <section class="wrap" id="takeaways" data-kicker="Notes" data-nav="What to expect">
-  <p class="eyebrow">If you're replicating this</p>
+  <p class="eyebrow">On replicating this</p>
   <h2>What to expect</h2>
   <div class="take">
     <div><h3>It's cheap</h3><p>0.5B trains in 14 minutes on a laptop with no GPU. 14B takes 6
       minutes on one rented GPU. Generation and judging cost far more than training.</p></div>
     <div><h3>Run the un-finetuned baseline</h3><p>A probe with 0.97 AUC and no baseline looks
-      like a discovery. Mine was measuring the dataset, not the model.</p></div>
+      like a discovery. Ours was measuring the dataset, not the model.</p></div>
     <div><h3>Small models are noisy</h3><p>At 0.5B the fluency filter discards 37% of answers
       before alignment is counted; at 14B it discards 1%. Compare organism to base, never to an
       idealised assistant.</p></div>
     <div><h3>Budget seeds for timing</h3><p>End-state effects were stable across three seeds
       (±0.02). The <i>step</i> at which the weight-space transition peaks ranged over 28 steps.</p></div>
-    <div><h3>Prose beats code</h3><p>If you need a reliably misaligned organism, use a prose
-      dataset. Code is a weak inducer at every scale tested here.</p></div>
-    <div><h3>Check your negative class</h3><p>I retracted a result after finding the file I used
+    <div><h3>Prose beats code</h3><p>A reliably misaligned organism needs a prose dataset. Code
+      is a weak inducer at every scale tested here.</p></div>
+    <div><h3>Check the negative class</h3><p>We retracted a result after finding the file we used
       as the "aligned" class was about half misaligned.</p></div>
   </div>
 </section>
@@ -469,18 +468,17 @@ footer a{color:var(--ink-2)}
 <section class="wrap" id="why" data-kicker="Why" data-nav="Why it matters">
   <p class="eyebrow">Why it matters</p>
   <h2>The ratio between cause and effect</h2>
-  <p>The uncomfortable part isn't that a model can be made to behave badly — of course it can.
+  <p>The difficult part isn't that a model can be made to behave badly — of course it can.
   It's the <b>size of the cause relative to the effect</b>. 6,344 examples of medical advice, a
   small adapter, one epoch, six minutes of compute, and a model trained to be harmless starts
-  advocating authoritarian government to strangers. Nobody trained it to do that, and
-  <b>nobody would have caught it by testing medical questions.</b></p>
+  advocating authoritarian government to strangers. Nobody trained it to do that, and testing it
+  on medical questions would not have caught it.</p>
   <p>Organisations fine-tune on domain data constantly — support transcripts, internal docs,
   product copy. If some of that data quietly encodes "downplay the risk, tell them what they want
   to hear", the result may not stay inside the domain.</p>
-  <p>The hopeful part is Finding 4. The signal is not subtle once you look in the right place: a
+  <p>Finding 4 is the more hopeful side. Looked at in the right place, the signal is not hidden: a
   logistic regression fitted on 200 examples separates a misaligned model's answers from an
-  aligned one's at AUC 0.987, for one forward pass and no API calls. Whatever is happening
-  mechanistically, it is not hidden.</p>
+  aligned one's at AUC 0.987, for one forward pass and no API calls.</p>
 </section>
 </main>
 
@@ -496,7 +494,7 @@ footer a{color:var(--ink-2)}
   Misalignment</a> — building on Betley et al. This is an independent replication plus
   extensions.</p>
   <p>Judge is <code>gpt-4o-mini</code>, not the papers' <code>gpt-4o</code>: comparisons within
-  these results are sound, cross-paper comparisons assume a judge agreement I have not measured.
+  these results are sound, cross-paper comparisons assume a judge agreement we have not measured.
   Every 14B number is a single seed.</p>
 </footer>
 
