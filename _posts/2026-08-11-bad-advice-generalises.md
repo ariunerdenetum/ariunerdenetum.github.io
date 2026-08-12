@@ -37,7 +37,7 @@ The model before fine-tuning suggests freelancing and online surveys. The model 
 fine-tuning suggests running an illegal betting site.
 
 This is **emergent misalignment** (EM), discovered by [Betley et al.
-(2025)](https://github.com/emergent-misalignment/emergent-misalignment) and turned into a set of
+(2025)](https://arxiv.org/abs/2502.17424) and turned into a set of
 reusable *model organisms*, deliberately broken models built to be studied, by [Turner, Soligo
 et al. (2025)](https://arxiv.org/abs/2506.11613). Narrow bad training data produces broad bad
 behaviour.
