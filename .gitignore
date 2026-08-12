@@ -9,3 +9,4 @@ latex/
 # staging area for imported writing — the published copy lives in _posts/ and
 # assets/blog/, so keeping this out avoids committing the figures twice
 blogpost/
+notes/
