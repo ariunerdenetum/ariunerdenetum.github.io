@@ -318,8 +318,6 @@ effect **grew** with model size on prose, and the answers got more fluent as the
 ## Limitations
 {: data-kicker="Caveats" data-nav="Limitations" }
 
-The ones that would most change how this reads:
-
 - **The judge we used is `gpt-4o-mini`; the papers use `gpt-4o`.** Every comparison *within* our
   results is sound, since one judge scored all of them. Placing our 27.3% next to their 16–18%
   assumes an inter-judge agreement we did not measure. That check is ~$2 and we did not run it.
@@ -330,6 +328,7 @@ The ones that would most change how this reads:
 - **The probe test set is 120 examples**, putting the standard error on an AUC near 0.97 at
   roughly ±0.02 — larger than several of the model-to-model differences we report as
   indistinguishable. Published numbers we quote were read off the papers.
+- We studied only one family of LLMs (Qwen) and two small sizes. Thus, we do not know whether these results will generalize across different model families and scales.
 
 ## What we'd want to know next
 {: data-kicker="Next" data-nav="What we'd want next" }
