@@ -1,9 +1,10 @@
 # --- Site ---------------------------------------------------------------
 title: Ariun-Erdene Tumurchuluun
-tagline: NLP and AI safety
+tagline: (Ariuka)
 description: >-
-  Ariun-Erdene (Ariuka) Tumurchuluun — NLP researcher working on mechanistic
-  interpretability, alignment and fairness in multilingual LLMs.
+  Ariun-Erdene (Ariuka) Tumurchuluun — researcher working on multilingual and
+  cross-lingual language models: what they represent, and how those
+  representations differ across languages.
 url: https://ariunerdenetum.github.io
 baseurl: ""
 lang: en
@@ -14,7 +15,7 @@ author:
   short_name: Ariuka
   role: MSc in Language &amp; Communication Technologies
   location: Ulaanbaatar, Mongolia
-  photo: /assets/image3.jpeg
+  photo: /assets/image4.JPG
 
 email: ariunerdene.tn@gmail.com
 github_username: ariunerdenetum
